@@ -6,6 +6,7 @@
     <ignored path=".idea/workspace.xml" />
     <file path="/script.js" changelist="57d2b4c7-5ac9-4c9c-97a1-708e29ad95fb" time="1488162701320" ignored="false" />
     <file path="/structure.html" changelist="57d2b4c7-5ac9-4c9c-97a1-708e29ad95fb" time="1488167879081" ignored="false" />
+    <file path="/example.js" changelist="57d2b4c7-5ac9-4c9c-97a1-708e29ad95fb" time="1488678169440" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,19 +26,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="structure.html" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/structure.html">
+      <file leaf-file-name="example.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../NodeJS/simpleserver/example.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="73" selection-start="167" selection-end="167" vertical-scroll-proportion="0.31835207">
-              <folding />
+            <state line="11" column="102" selection-start="434" selection-end="434" vertical-scroll-proportion="0.33512545">
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="script.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/script.js">
+      <file leaf-file-name="package.json" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../../NodeJS/simpleserver/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="5" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0">
+            <state line="6" column="28" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -55,13 +58,16 @@
       <list>
         <option value="$PROJECT_DIR$/script.js" />
         <option value="$PROJECT_DIR$/structure.html" />
+        <option value="$PROJECT_DIR$/../../NodeJS/00SimpleServer/example.js" />
+        <option value="$PROJECT_DIR$/../../NodeJS/simpleserver/package.json" />
+        <option value="$PROJECT_DIR$/../../NodeJS/simpleserver/example.js" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1378" />
+    <option name="width" value="1382" />
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -93,7 +99,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Documents/JAVA_Workspace/ECE568/htmlVolumeCalc" />
+    <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
   </component>
   <component name="RunManager">
@@ -117,7 +124,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1378" height="744" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -199,31 +206,107 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../../NodeJS/simpleserver/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="28" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../NodeJS/simpleserver/example.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="49" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../NodeJS/simpleserver/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="28" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../NodeJS/simpleserver/example.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="49" selection-start="285" selection-end="285" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../NodeJS/simpleserver/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="28" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/structure.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="36" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="17" column="66" selection-start="413" selection-end="413" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../NodeJS/simpleserver/example.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="68" selection-start="224" selection-end="224" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/script.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="5" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="5" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="20" column="5" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/structure.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="73" selection-start="167" selection-end="167" vertical-scroll-proportion="0.31835207">
+        <state line="10" column="73" selection-start="167" selection-end="167" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="5" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structure.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="36" selection-start="88" selection-end="88" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="5" selection-start="904" selection-end="904" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/structure.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="66" selection-start="413" selection-end="413" vertical-scroll-proportion="-0.65384614" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="5" selection-start="904" selection-end="904" vertical-scroll-proportion="0.6238532" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../NodeJS/simpleserver/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="28" selection-start="165" selection-end="165" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../NodeJS/simpleserver/example.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="102" selection-start="434" selection-end="434" vertical-scroll-proportion="0.33512545">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
