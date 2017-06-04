@@ -1,5 +1,3 @@
-# usingAPIs
+# WebDev-FCC
 
-Using this repository to work with APIs.
-
-Starting with Yahoo APIs to get stock prices.
+Using this repository to do challenges and projects from freecodecamp
