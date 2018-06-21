@@ -1,5 +1,3 @@
-# WebDev-FCC
+# ReactJS
 
-Using this repository to do challenges and projects from freecodecamp
-
-https://www.freecodecamp.com/about/
+Using this repository to create mini ReactJS projects
