@@ -1,0 +1,10 @@
+.noteFont{
+  font: 25px arial, sans-serif;
+  color: darkcyan;
+  margin-bottom: 10px;
+}
+.commentContainer{
+  background-color: lavenderblush;
+  margin: 40px 0px;
+  text-align: center;
+}

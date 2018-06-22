@@ -1,0 +1,52 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Working with ReactJS</title>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/style-note.css">
+  <!-- https://codeutopia.net/blog/2016/01/10/getting-started-with-react-the-easy-way/ -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.js"></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="col-lg-12" id="notes"></div>
+  </div>
+  <script type="text/babel">
+    const Comment = React.createClass({
+      getInitialState: function(){
+        return {editMode: false}
+      },
+      editComment: function(){
+        console.log("Comment edit pressed");
+        this.setState({editMode: true})
+      },
+      removeComment: function(){
+        console.log("Comment remove pressed");
+      },
+      render: function() {
+        return (
+          <div className="commentContainer">
+            <div className="noteFont">{this.props.children}</div>
+            <button className="btn btn-primary" onClick={this.editComment}>Edit</button>
+            <button className="btn btn-danger" onClick={this.removeComment} style={{marginLeft:"40px"}}>Delete</button>
+          </div>
+        )
+      }
+    });
+    ReactDOM.render(
+      <div className="Board">
+        <Comment>Eat</Comment>
+        <Comment>Sleep</Comment>
+        <Comment>Break the streak</Comment>
+      </div>,
+      document.getElementById('notes')
+    );
+  </script>
+</body>
+</html>
