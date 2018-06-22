@@ -30,6 +30,8 @@
         console.log("Comment remove pressed");
       },
       saveComment: function(){
+        var val = this.refs.newText.value;
+        console.log(val);
         this.setState({editMode: false})
       },
       cancelComment: function(){
@@ -47,7 +49,7 @@
       renderEdit: function(){
         return(
           <div className="commentContainer">
-            <textarea defaultValue = {this.props.children}></textarea><br/>
+            <textarea ref="newText" defaultValue = {this.props.children}></textarea><br/>
             <button className="btn btn-primary" onClick={this.saveComment}>Save</button>
             <button className="btn btn-danger" onClick={this.cancelComment} style={{marginLeft:"40px"}}>Cancel</button>
           </div>
@@ -60,12 +62,30 @@
           return this.renderNormal();
       }
     });
+
+    const Board = React.createClass({
+      getInitialState: function(){
+        return {
+              comments:[
+                "Eat",
+                "Sleep",
+                "Break the streak"
+              ]
+            }
+      },
+      render: function(){
+        return(
+          <div className="board">
+          {
+            this.state.comments.map((elem, i) => <Comment key={i}>{elem}</Comment>);
+          }
+          </div>
+      )
+      }
+    });
+
     ReactDOM.render(
-      <div className="Board">
-        <Comment>Eat</Comment>
-        <Comment>Sleep</Comment>
-        <Comment>Break the streak</Comment>
-      </div>,
+      <Board/>,
       document.getElementById('notes')
     );
   </script>
