@@ -6,23 +6,46 @@
   <title>Working with ReactJS</title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- https://codeutopia.net/blog/2016/01/10/getting-started-with-react-the-easy-way/ -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.6/react-dom.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.js"></script>
 </head>
 
 <body>
-  <div id="app"></div>
+  <div class="container">
+    <div class="col-lg-12" id="component"></div>
+    <div class="col-lg-12" id="props"></div>
+  </div>
   <script type="text/babel">
-    var App = React.createClass({
+    const SingleComponent = React.createClass({
       render: function() {
-        return <div>False Prophets</div>;
+        return (<h1>This is a single component</h1>)
       }
     });
-
+    const MultiComponent = React.createClass({
+      render: function() {
+        return (<div>
+          <h1>False Prophets</h1>
+          <h3>- J. Cole</h3>
+          </div>)
+      }
+    });
     ReactDOM.render(
-      <App />,
-      document.getElementById('app')
+      <div><SingleComponent/><MultiComponent/></div>,
+      document.getElementById('component')
+    );
+
+    const movies = [{name: "DDLJ", rating: 5}, {name: "Chak De!", rating: 5}, {name: "Wakanda", rating: 1}, {name: "Thor: Ragnorak", rating: 5}];
+    let movItems = movies.map((elem) => <li><h4>{elem.name}: {elem.rating}</h4></li>)
+    const PropComponent = React.createClass({
+      render: function() {
+        return (<ul>{movItems}</ul>)
+      }
+    });
+    ReactDOM.render(
+      <div><PropComponent/></div>,
+      document.getElementById('props')
     );
   </script>
 </body>
