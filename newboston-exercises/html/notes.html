@@ -29,7 +29,13 @@
       removeComment: function(){
         console.log("Comment remove pressed");
       },
-      render: function() {
+      saveComment: function(){
+        this.setState({editMode: false})
+      },
+      cancelComment: function(){
+        this.setState({editMode: false})
+      },
+      renderNormal: function(){
         return (
           <div className="commentContainer">
             <div className="noteFont">{this.props.children}</div>
@@ -37,6 +43,21 @@
             <button className="btn btn-danger" onClick={this.removeComment} style={{marginLeft:"40px"}}>Delete</button>
           </div>
         )
+      },
+      renderEdit: function(){
+        return(
+          <div className="commentContainer">
+            <textarea defaultValue = {this.props.children}></textarea><br/>
+            <button className="btn btn-primary" onClick={this.saveComment}>Save</button>
+            <button className="btn btn-danger" onClick={this.cancelComment} style={{marginLeft:"40px"}}>Cancel</button>
+          </div>
+        )
+      },
+      render: function() {
+        if(this.state.editMode)
+          return this.renderEdit();
+        else
+          return this.renderNormal();
       }
     });
     ReactDOM.render(
