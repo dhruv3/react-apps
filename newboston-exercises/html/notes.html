@@ -76,23 +76,29 @@
               ]
             }
       },
+      addNote: function(text){
+        let arr = this.state.comments;
+        arr.push(text);
+        this.setState({comments: arr});
+      },
       deleteComment: function(i){
         let arr = this.state.comments;
         arr.splice(i,1);
-        this.setState({comments: arr})
+        this.setState({comments: arr});
       },
       updateComment: function(text, i){
         let arr = this.state.comments;
         arr[i] = text;
-        this.setState({comments: arr})
+        this.setState({comments: arr});
       },
       render: function(){
         let temp = this.state.comments.map((elem, i) => <Comment key={i} index={i} updateCommentProp={this.updateComment} delCommentProp={this.deleteComment} >{elem}</Comment>);
         return(
-          <div className="board">
-          {
-            temp
-          }
+          <div>
+            <button className="btn btn-primary btn-lg" onClick={this.addNote.bind(this, "Default Value")}>Add Note</button>
+            <div className="board">
+              {temp}
+            </div>
           </div>
         )
       }
