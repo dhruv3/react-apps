@@ -1,0 +1,28 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Beginners Guide to React</title>
+</head>
+<body>
+  <div id='root'></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script type="text/javascript">
+    const rootElem = document.getElementById('root');
+    // const elem = document.createElement('div');
+    // elem.textContent = 'Hello World';
+    // elem.className = 'container';
+    // rootElem.appendChild(elem);
+    const elem = React.createElement(
+      'div',
+      {
+        className: 'container',
+        children: ['Hello World', 'Burn', 'it', 'down']
+      }
+    )
+    ReactDOM.render(elem, rootElem);
+  </script>
+</body>
+</html>
