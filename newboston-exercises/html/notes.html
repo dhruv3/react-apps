@@ -74,10 +74,11 @@
             }
       },
       render: function(){
+        let temp = this.state.comments.map((elem, i) => <Comment key={i}>{elem}</Comment>);
         return(
           <div className="board">
           {
-            this.state.comments.map((elem, i) => <Comment key={i}>{elem}</Comment>);
+            temp
           }
           </div>
       )
