@@ -1,0 +1,31 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Beginners Guide to React</title>
+</head>
+<body>
+  <div id='root'></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js'></script>
+  <script type="text/babel">
+    const rootElem = document.getElementById('root');
+    //component should be CAPS so as to be recognized by Babel
+    const Message = props => <div>{props.msg}</div>
+    const message = props => <div>{props.msg}</div>
+    const elem = (
+      <div>
+        <h3>Creating elements using createElement</h3>
+        {React.createElement(message, {msg: "React create element API can also take a function."})}
+        {React.createElement(message, {msg: "It will pass the props to the function, and that function presumably will render some more elements. "})}
+        <h3>Creating elements using JSX div</h3>
+        <Message msg="Hello World"/>
+        <Message msg="This is React"/>
+      </div>
+    )
+    ReactDOM.render(elem, rootElem);
+  </script>
+</body>
+</html>

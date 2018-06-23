@@ -7,9 +7,11 @@
 </head>
 <body>
   <div id='root'></div>
+  <div id='root2'></div>
   <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
-  <script type="text/javascript">
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js'></script>
+  <script type="text/babel">
     const rootElem = document.getElementById('root');
     // const elem = document.createElement('div');
     // elem.textContent = 'Hello World';
@@ -23,6 +25,15 @@
       }
     )
     ReactDOM.render(elem, rootElem);
+
+    const rootElem2 = document.getElementById('root2');
+    const props = {
+      className: 'newContainer',
+      children: ['Break', 'The', 'Streak']
+    }
+    //spread syntax
+    const newElem = <div {...props}/>
+    ReactDOM.render(newElem, rootElem2);
   </script>
 </body>
 </html>
