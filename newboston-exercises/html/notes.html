@@ -28,10 +28,12 @@
       },
       removeComment: function(){
         console.log("Comment remove pressed");
+        this.props.delCommentProp(this.props.index);
       },
       saveComment: function(){
         var val = this.refs.newText.value;
         console.log(val);
+        this.props.updateCommentProp(val, this.props.index);
         this.setState({editMode: false})
       },
       cancelComment: function(){
@@ -69,19 +71,30 @@
               comments:[
                 "Eat",
                 "Sleep",
-                "Break the streak"
+                "Break the streak",
+                "Delete this"
               ]
             }
       },
+      deleteComment: function(i){
+        let arr = this.state.comments;
+        arr.splice(i,1);
+        this.setState({comments: arr})
+      },
+      updateComment: function(text, i){
+        let arr = this.state.comments;
+        arr[i] = text;
+        this.setState({comments: arr})
+      },
       render: function(){
-        let temp = this.state.comments.map((elem, i) => <Comment key={i}>{elem}</Comment>);
+        let temp = this.state.comments.map((elem, i) => <Comment key={i} index={i} updateCommentProp={this.updateComment} delCommentProp={this.deleteComment} >{elem}</Comment>);
         return(
           <div className="board">
           {
             temp
           }
           </div>
-      )
+        )
       }
     });
 
