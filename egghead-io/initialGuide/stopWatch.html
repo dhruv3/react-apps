@@ -49,6 +49,12 @@
         this.setState({running: false, lapse: 0})
       }
 
+      //fix memory leak
+      //https://medium.com/outsystems-experts/beyond-memory-leaks-in-javascript-d27fd48ae67e
+      componentWillUnmount(){
+        clearInterval(this.timer)
+      }
+
       render(){
         const {lapse, running} = this.state
         return (
