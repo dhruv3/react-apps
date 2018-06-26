@@ -27,14 +27,26 @@
     }
 
     class StopWatch extends React.Component{
+      //Extract the pieces that are stateful, like the lapse and running
       state = {lapse: 0, running: false}
 
       handleStart(){
-
+        if(this.state.running){
+          clearInterval(this.timer)
+          this.setState({running: false})
+        }
+        else{
+          let start = Date.now() - this.state.lapse
+          this.timer = setInterval(() => {
+            this.setState({lapse: Date.now() - start})
+          })
+          this.setState({running: true})
+        }
       }
 
       handleClear(){
-
+        clearInterval(this.timer)
+        this.setState({running: false, lapse: 0})
       }
 
       render(){
@@ -42,8 +54,8 @@
         return (
           <div style={{textAlign: 'center'}}>
             <label style={{display: 'block', fontSize: '5em'}}>{lapse} ms</label>
-            <button style={buttonStyle} onClick = {this.handleStart}>{running ? 'Stop' : 'Start'}</button>
-            <button style={buttonStyle} onClick = {this.handleClear}>Clear</button>
+            <button style={buttonStyle} onClick = {this.handleStart.bind(this)}>{running ? 'Stop' : 'Start'}</button>
+            <button style={buttonStyle} onClick = {this.handleClear.bind(this)}>Clear</button>
           </div>
         )
       }
