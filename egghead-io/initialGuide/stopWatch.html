@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>StopWatch and Component State in React</title>
+</head>
+<style>
+</style>
+<body>
+  <div id='root'></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.2/prop-types.js"></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js'></script>
+  <script type="text/babel">
+    const rootElem = document.getElementById('root');
+    const buttonStyle = {
+      border: '1px solid #ccc',
+      backgroundColor: '#fff',
+      fontSize: '2em',
+      paddinng: 15,
+      margin: 5,
+      height: 200,
+    }
+    function handleStart(){
+
+    }
+
+    function handleClear(){
+
+    }
+
+    function StopWatch(){
+      return (
+        <div style={{textAlign: 'center'}}>
+          <label style={{display: 'block', fontSize: '5em'}}>0 ms</label>
+          <button style={buttonStyle} onClick = {handleStart}>Start</button>
+          <button style={buttonStyle} onClick = {handleClear}>Start</button>
+        </div>
+      )
+    }
+    const element = (
+      <StopWatch/>
+    )
+    ReactDOM.render(element, rootElem);
+  </script>
+</body>
+</html>
