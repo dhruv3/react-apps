@@ -14,6 +14,8 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.6.2/prop-types.js"></script>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js'></script>
   <script type="text/babel">
+    //https://reactarmory.com/answers/es6-classes-vs-function-components
+    //https://stackoverflow.com/questions/36097965/react-when-to-use-es6-class-based-components-vs-functional-es6-components
     const rootElem = document.getElementById('root');
     const buttonStyle = {
       border: '1px solid #ccc',
@@ -23,23 +25,30 @@
       margin: 5,
       height: 200,
     }
-    function handleStart(){
 
+    class StopWatch extends React.Component{
+      state = {lapse: 0, running: false}
+
+      handleStart(){
+
+      }
+
+      handleClear(){
+
+      }
+
+      render(){
+        const {lapse, running} = this.state
+        return (
+          <div style={{textAlign: 'center'}}>
+            <label style={{display: 'block', fontSize: '5em'}}>{lapse} ms</label>
+            <button style={buttonStyle} onClick = {this.handleStart}>{running ? 'Stop' : 'Start'}</button>
+            <button style={buttonStyle} onClick = {this.handleClear}>Clear</button>
+          </div>
+        )
+      }
     }
 
-    function handleClear(){
-
-    }
-
-    function StopWatch(){
-      return (
-        <div style={{textAlign: 'center'}}>
-          <label style={{display: 'block', fontSize: '5em'}}>0 ms</label>
-          <button style={buttonStyle} onClick = {handleStart}>Start</button>
-          <button style={buttonStyle} onClick = {handleClear}>Start</button>
-        </div>
-      )
-    }
     const element = (
       <StopWatch/>
     )
