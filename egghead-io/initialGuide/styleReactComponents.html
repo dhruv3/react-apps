@@ -5,6 +5,23 @@
   <meta charset="utf-8">
   <title>Styling in React</title>
 </head>
+<style>
+.box{
+  border: 1px solid black;
+}
+.box--small{
+  width: 60px;
+  height: 60px;
+}
+.box--medium{
+  width: 100px;
+  height: 100px;
+}
+.box--large{
+  width: 140px;
+  height: 140px;
+}
+</style>
 <body>
   <div id='root'></div>
   <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
@@ -13,10 +30,38 @@
   <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js'></script>
   <script type="text/babel">
     const rootElem = document.getElementById('root');
-
-    ReactDOM.render(elem, rootElem);
-
-    document.getElementById('propType');
+    //so as to not override inline style we have DESTRUCTERED style
+    //The poor ergonomics of using a variable called class in JavaScript is one of the reasons React chose classname over class for this particular prop.
+    //template literal: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+    function Box({style, className='', ...rest}){
+      return (
+        <div
+          className = {`box ${className}`}
+          style = {{paddingLeft: 20, ...style}}
+          {...rest}
+        />
+      )
+    }
+    const element = (
+      <div>
+        <Box
+        className="box--small"
+        style = {{backgroundColor: 'lightblue'}}>
+          Small Box
+        </Box>
+        <Box
+        className="box--medium"
+        style = {{backgroundColor: 'lightpink'}}>
+          Medium Box
+        </Box>
+        <Box
+        className="box--large"
+        style = {{backgroundColor: 'orange'}}>
+          Large Box
+        </Box>
+      </div>
+    )
+    ReactDOM.render(element, rootElem);
   </script>
 </body>
 </html>
