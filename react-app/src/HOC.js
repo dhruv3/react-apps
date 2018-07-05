@@ -1,10 +1,22 @@
 import React from 'react';
 
 const HOC = (InnerComponent) => class extends React.Component{
+  constructor(){
+    super()
+    this.update = this.update.bind(this)
+    this.state = {count: 0}
+  }
+  update(){
+    this.setState({count: this.state.count + 1})
+  }
   render(){
-    <InnerComponent
-    {...this.props}
-    />
+    return(
+      <InnerComponent
+      {...this.props}
+      {...this.state}
+      update={this.update}
+      />
+    )
   }
 }
 
@@ -14,22 +26,24 @@ class HOCClass extends React.Component{
       <div>
         <Button>button</Button>
         <hr/>
-        <Label>label</Label>
+        <LabelHOC>label</LabelHOC>
       </div>
     )
   }
 }
 
-const Button = (props) => <button>{props.children}</button>
+const Button = HOC((props) => <button onClick={props.update}>{props.children} - {props.count}</button>)
 
 class Label extends React.Component{
   render(){
     return(
-      <label>
-        {this.props.children}
+      <label onMouseOver={this.props.update}>
+        {this.props.children} - {this.props.count}
       </label>
     )
   }
 }
+
+const LabelHOC = HOC(Label)
 
 export {HOCClass}
