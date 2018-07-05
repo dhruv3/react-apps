@@ -4,6 +4,7 @@ import App from './App';
 import {ClassApp} from './App';
 import {RefsApp} from './Refs';
 import {Wrapper} from './LifeCycleMethods';
+import {Fetch} from './fetchAPI';
 
 const Elem = () => (
   <div>
@@ -14,6 +15,8 @@ const Elem = () => (
     <h1>State Component and Constructor</h1>
     <ClassApp/>
     <App/>
+    <h1>Fetch API</h1>
+    <Fetch/>
   </div>
 )
 
