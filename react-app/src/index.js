@@ -6,9 +6,12 @@ import {RefsApp} from './Refs';
 import {Wrapper} from './LifeCycleMethods';
 import {Fetch} from './fetchAPI';
 import {HOCClass} from './HOC';
+import {ExtendChildren} from './extendChildrenProps';
 
 const Elem = () => (
   <div>
+    <h1>Extend Children</h1>
+    <ExtendChildren/>
     <h1>Higher Order Component</h1>
     <HOCClass/>
     <h1>Use of Life Cycle Methods</h1>

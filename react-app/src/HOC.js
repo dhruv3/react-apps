@@ -1,5 +1,7 @@
 import React from 'react';
 
+//Higher order components will allow you to apply behaviors to multiple React components.
+//This can be done by passing the state and any functions into components as props.
 const HOC = (InnerComponent) => class extends React.Component{
   constructor(){
     super()
@@ -9,6 +11,8 @@ const HOC = (InnerComponent) => class extends React.Component{
   update(){
     this.setState({count: this.state.count + 1})
   }
+  //you could spread state or do: count = this.state.count
+  //you need to pass 'update' as prop so you can refer it in Button and Label component
   render(){
     return(
       <InnerComponent
@@ -32,6 +36,7 @@ class HOCClass extends React.Component{
   }
 }
 
+//functional component: this not used in stateless component
 const Button = HOC((props) => <button onClick={props.update}>{props.children} - {props.count}</button>)
 
 class Label extends React.Component{
