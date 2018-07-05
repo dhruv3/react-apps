@@ -18,11 +18,21 @@ class Buttons extends React.Component{
     this.state = {selected: 'None'}
   }
 
+  selectedItem(val){
+    this.setState({selected: val})
+  }
+
   render(){
-    let items = this.props.children;
+    //props.children isn't the actual children. You can only read them
+    //We create new elements using cloneElement. We pass our child and how we want to extend that
+    let fn = child =>
+      React.cloneElement(child, {
+        onClick: this.selectedItem.bind(this, child.props.value)
+      })
+    let items = React.Children.map(this.props.children, fn)
     return(
       <div>
-        <h3>You have selected: {this.props.selected}</h3>
+        <h3>You have selected: {this.state.selected}</h3>
         {items}
       </div>
     )
