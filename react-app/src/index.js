@@ -5,9 +5,12 @@ import {ClassApp} from './App';
 import {RefsApp} from './Refs';
 import {Wrapper} from './LifeCycleMethods';
 import {Fetch} from './fetchAPI';
+import {HOCClass} from './HOC';
 
 const Elem = () => (
   <div>
+    <h1>Higher Order Component</h1>
+    <HOCClass/>
     <h1>Use of Life Cycle Methods</h1>
     <Wrapper/>
     <h1>Use React ref to Get a Reference to Specific Components</h1>
