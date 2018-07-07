@@ -1,0 +1,37 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: monospace;
+}
+
+header {
+  display: block;
+  height: 15vh;
+  overflow: auto;
+  background-color: pink;
+  color: red;
+  font-size: 20px
+}
+
+.container {
+  height: 85vh;
+  display:flex;
+}
+
+pre {
+  background-color: #f8f8f8;
+}
+
+pre, textarea {
+  width: 50%;
+  font-family: monospace;
+  font-size: 28px;
+  margin: 0;
+  padding: 10px;
+  color: #222;
+  word-wrap: break-word;
+  /* https://stackoverflow.com/questions/248011/how-do-i-wrap-text-in-a-pre-tag */
+  white-space: pre-wrap;
+}
+
+textarea:focus {outline: 0;}
