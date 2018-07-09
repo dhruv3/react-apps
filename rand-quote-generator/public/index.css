@@ -1,7 +1,40 @@
+body, html{
+    height: 100%;
+}
+
 #root{
   height:100vh;
+  background-color: honeydew;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 #quote-box{
-  
+  width: 40%;
+  background-color: seashell;
+}
+
+#author{
+  text-align: right;
+  font-size: 1em;
+  padding: 10px 10px;
+}
+
+#text{
+  font-weight: 500;
+  font-size: 1.75em;
+}
+
+#text i{
+  font-size: 1.0em;
+  margin-right: 0.4em;
+}
+
+#new-quote{
+  float: right;
+}
+
+.buttons{
+  padding: 10px 10px;
 }

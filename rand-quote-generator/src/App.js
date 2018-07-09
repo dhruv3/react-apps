@@ -3,8 +3,8 @@ import React, { Component } from 'react';
 class Author extends Component{
   render(){
     return(
-      <div id="author">
-        {this.props.author}
+      <div id="author" className="col-lg-12">
+         - {this.props.author}
       </div>
     )
   }
@@ -13,7 +13,8 @@ class Author extends Component{
 class Text extends Component{
   render(){
     return(
-      <div id="text">
+      <div id="text" className="col-lg-12">
+        <i class="fa fa-quote-left"></i>
         {this.props.text}
       </div>
     )
@@ -38,14 +39,14 @@ class App extends Component {
   }
   render() {
     return (
-      <div id="quote-box">
+      <div id="quote-box" className="container">
         <Text text={this.state.text}/>
         <Author author={this.state.author}/>
-        <div className="buttons">
-          <span id="tweet-quote">
-            <a href="twitter.com/intent/tweet">Tweet</a>
+        <div className="buttons col-lg-12">
+          <span className="btn btn-primary" id="tweet-quote">
+            <a className="text-white" href="twitter.com/intent/tweet">Tweet</a>
           </span>
-          <button id="new-quote" onClick={this.update}>New Quote</button>
+          <button className="btn btn-success" id="new-quote" onClick={this.update}>New Quote</button>
         </div>
       </div>
     );
