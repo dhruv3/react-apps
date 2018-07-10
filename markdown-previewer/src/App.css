@@ -7,22 +7,18 @@ body {
 .container-fluid.header {
   display: block;
   height: 10vh;
-  background-color: pink;
-  color: red;
+  background-color: turquoise;
+  color: navy;
   font-size: 20px
 }
 
-.container-fluid.inputArea{
+#editor, #preview{
   height: 90vh;
 }
 
-pre {
-  background-color: #f8f8f8;
-}
-
-pre, textarea {
+#preview, textarea {
   font-family: monospace;
-  font-size: 28px;
+  font-size: 20px;
   margin: 0;
   padding: 10px;
   color: #222;
@@ -32,3 +28,18 @@ pre, textarea {
 }
 
 textarea:focus {outline: 0;}
+
+#preview{
+  border: 1px solid gray;
+  overflow: scroll;
+}
+
+textarea{
+  font-size: 12px;
+}
+
+.vertical-center{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}

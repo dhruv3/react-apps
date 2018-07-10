@@ -10,12 +10,10 @@ class App extends Component {
   constructor(){
     super();
     let dummyInp = placeholderInp
-    // "# Marked in browser\n\nRendered by **marked**."
     let dummyOut = marked(dummyInp)
     this.state = {
       input: dummyInp,
-      output: dummyOut,
-      err:""
+      output: dummyOut
     }
     this.update = this.update.bind(this);
   }
@@ -25,12 +23,11 @@ class App extends Component {
     try{
       this.setState({
         input: code,
-        output: marked(code),
-        err: ''
+        output: marked(code)
       })
     }
     catch(err){
-      this.setState({err: err.message})
+      console.log(err)
     }
   }
 
@@ -39,9 +36,9 @@ class App extends Component {
     return (
       <div className="container-fluid">
         <div className="container-fluid header">
-          <div className="row">
-            <div className="col-lg-6 text-center">Editor</div>
-            <div className="col-lg-6 text-center">Previewer</div>
+          <div className="row" style={inpStyle}>
+            <div className="col-lg-6 text-center vertical-center">Editor</div>
+            <div className="col-lg-6 text-center vertical-center">Previewer</div>
           </div>
         </div>
         <div className="container-fluid inputArea">
@@ -97,7 +94,6 @@ And here. | Okay. | I think we get it.
   - Some are bulleted.
      - With different indentation levels.
         - That look like this.
-
 
 1. And there are numbererd lists too.
 1. Use just 1s if you want!
