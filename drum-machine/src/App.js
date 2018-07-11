@@ -18,11 +18,36 @@ class ButtonPad extends Component{
 class App extends Component {
   constructor(){
     super();
+    this.playAudioOnClick = this.playAudioOnClick.bind(this)
+    this.keyPressAudio = this.keyPressAudio.bind(this)
+  }
+
+  //https://stackoverflow.com/a/46123962
+  //document level key binding
+  keyPressAudio(e){
+    let key = e.key.toUpperCase();
+    if(document.getElementById(key)){
+      document.getElementById(key).volume = 0.03;
+      document.getElementById(key).play();
+    }
+  }
+  componentDidMount(){
+    document.addEventListener("keydown", this.keyPressAudio, false);
+  }
+  componentWillUnmount(){
+    document.removeEventListener("keydown", this.keyPressAudio, false);
+  }
+
+  playAudioOnClick(e){
+    if(e.target.children.length == 1){
+      e.target.children[0].volume = 0.03
+      e.target.children[0].play();
+    }
   }
 
   render() {
     return (
-      <div className="container" id="drum-machine">
+      <div className="container" id="drum-machine" onClick={this.playAudioOnClick}>
         <div className="row displayChar" id="display">
         </div>
         <div className="row" id="drumButtons">
