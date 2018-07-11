@@ -6,7 +6,7 @@ class ButtonPad extends Component{
       <div className="col-lg-12">
         {bank.map(elem =>
             <div key={elem.keyTrigger} className="drum-pad col-lg-3 offset-lg-1">
-              <audio className="clip" id={elem.keyTrigger} src={elem.url}></audio>
+              <audio className="clip" id={elem.keyTrigger} desc={elem.desc} src={elem.url}></audio>
               {elem.keyTrigger}
             </div>)
         }
@@ -18,8 +18,12 @@ class ButtonPad extends Component{
 class App extends Component {
   constructor(){
     super();
+    this.timeout = []
     this.playAudioOnClick = this.playAudioOnClick.bind(this)
     this.keyPressAudio = this.keyPressAudio.bind(this)
+    this.state ={
+      displayText: ""
+    }
   }
 
   //https://stackoverflow.com/a/46123962
@@ -27,8 +31,17 @@ class App extends Component {
   keyPressAudio(e){
     let key = e.key.toUpperCase();
     if(document.getElementById(key)){
+      //clear all the previous timeouts
+      this.timeout.map(elem => clearTimeout(elem))
+      this.timeout = []
+      this.setState({
+        displayText: document.getElementById(key).getAttribute('desc')
+      })
       document.getElementById(key).volume = 0.03;
       document.getElementById(key).play();
+      this.timeout.push(setTimeout(() => this.setState({
+        displayText: ""
+      }), 3000))
     }
   }
   componentDidMount(){
@@ -39,16 +52,26 @@ class App extends Component {
   }
 
   playAudioOnClick(e){
-    if(e.target.children.length == 1){
+    //check if clicked element has a single child with class 'clip'
+    if(e.target.children.length == 1 && e.target.children[0].classList.contains('clip')){
+      //clear all the previous timeouts
+      this.timeout.map(elem => clearTimeout(elem))
+      this.timeout = []
       e.target.children[0].volume = 0.03
       e.target.children[0].play();
+      this.setState({
+        displayText: e.target.children[0].getAttribute('desc')
+      })
+      this.timeout.push(setTimeout(() => this.setState({
+        displayText: ""
+      }), 3000))
     }
   }
 
   render() {
     return (
       <div className="container" id="drum-machine" onClick={this.playAudioOnClick}>
-        <div className="row displayChar" id="display">
+        <div className="row displayChar" id="display" dangerouslySetInnerHTML={{__html: this.state.displayText}}>
         </div>
         <div className="row" id="drumButtons">
           <ButtonPad/>
@@ -59,49 +82,40 @@ class App extends Component {
 }
 
 const bank = [{
-    keyCode: 81,
     keyTrigger: 'Q',
-    id: 'Heater-1',
+    desc: 'Heater-1',
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-1.mp3'
   }, {
-    keyCode: 87,
     keyTrigger: 'W',
-    id: 'Heater-2',
+    desc: 'Heater-2',
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-2.mp3'
   }, {
-    keyCode: 69,
     keyTrigger: 'E',
-    id: 'Heater-3',
+    desc: 'Heater-3',
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-3.mp3'
   }, {
-    keyCode: 65,
     keyTrigger: 'A',
-    id: 'Heater-4',
+    desc: 'Heater-4',
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-4_1.mp3'
   }, {
-    keyCode: 83,
     keyTrigger: 'S',
-    id: 'Clap',
+    desc: 'Clap',
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Heater-6.mp3'
   }, {
-    keyCode: 68,
     keyTrigger: 'D',
-    id: 'Open-HH',
+    desc: 'Open-HH',
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3'
   }, {
-    keyCode: 90,
     keyTrigger: 'Z',
-    id: "Kick-n'-Hat",
+    desc: "Kick-n'-Hat",
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3'
   }, {
-    keyCode: 88,
     keyTrigger: 'X',
-    id: 'Kick',
+    desc: 'Kick',
     url: 'https://s3.amazonaws.com/freecodecamp/drums/RP4_KICK_1.mp3'
   }, {
-    keyCode: 67,
     keyTrigger: 'C',
-    id: 'Closed-HH',
+    desc: 'Closed-HH',
     url: 'https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3'
   },
 ];

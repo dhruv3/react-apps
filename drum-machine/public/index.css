@@ -19,6 +19,10 @@ body, html{
 #display{
   height: 20%;
   background-color: cadetblue;
+  color: antiquewhite;
+  font-size: 40px;
+  font-weight: 600;
+  justify-content: center;
 }
 
 #drumButtons{
