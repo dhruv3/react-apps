@@ -46,18 +46,41 @@ class ButtonPad extends Component{
 }
 
 class App extends Component {
+  constructor(){
+    super()
+    this.handleParentClick = this.handleParentClick.bind(this)
+  }
+  handleParentClick(e){
+
+  }
   render() {
     return (
-      <div className="container" id="calcMachine">
-        <div className="row">
-          <div className="col-sm-12" id="formulaScreen"></div>
-        </div>
-        <div className="row">
-          <div className="col-sm-12" id="display"></div>
-        </div>
+      <div className="container" id="calcMachine" onClick={this.handleParentClick}>
+        <FormulaScreen/>
+        <DisplayScreen/>
         <ButtonPad/>
       </div>
     );
+  }
+}
+
+class FormulaScreen extends Component{
+  render(){
+    return(
+      <div className="row">
+        <div className="col-sm-12" id="formulaScreen"></div>
+      </div>
+    )
+  }
+}
+
+class DisplayScreen extends Component{
+  render(){
+    return(
+      <div className="row">
+        <div className="col-sm-12" id="display"></div>
+      </div>
+    )
   }
 }
 
