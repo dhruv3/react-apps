@@ -1,0 +1,36 @@
+body, html{
+    height: 100%;
+}
+
+#root{
+  height:100vh;
+  background-color: honeydew;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#calcMachine{
+  width: 320px;
+  border: 2px solid #47476b;
+  background: black;
+}
+
+#display{
+  height: 90px;
+  color: antiquewhite;
+  font-size: 40px;
+  font-weight: 600;
+  justify-content: center;
+}
+
+.customBtn{
+  height: 65px;
+}
+
+.equalContainer{
+  height: 130px;
+}
+.equalContainer .row{
+  height: 100%;
+}
