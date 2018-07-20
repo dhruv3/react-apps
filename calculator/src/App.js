@@ -30,13 +30,13 @@ class ButtonPad extends Component{
                   <button id="three" className="col-sm-4">3</button>
               </div>
               <div className="row customBtn">
-                  <button id="zero" className="col-md-8">0</button>
-                  <button className="col-md-4">.</button>
+                  <button id="zero" className="col-sm-8">0</button>
+                  <button className="col-sm-4">.</button>
               </div>
           </div>
-          <div className="col-md-3 customBtn equalContainer">
+          <div className="col-sm-3 customBtn equalContainer">
             <div className="row">
-                <button id="equals" className="col-md-12">=</button>
+                <button id="equals" className="col-sm-12">=</button>
             </div>
           </div>
         </div>
@@ -49,7 +49,12 @@ class App extends Component {
   render() {
     return (
       <div className="container" id="calcMachine">
-        <div className="row displayChar" id="display"></div>
+        <div className="row">
+          <div className="col-sm-12" id="formulaScreen"></div>
+        </div>
+        <div className="row">
+          <div className="col-sm-12" id="display"></div>
+        </div>
         <ButtonPad/>
       </div>
     );

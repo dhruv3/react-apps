@@ -21,11 +21,20 @@ body, html{
 }
 
 #display{
-  height: 90px;
+  height: 45px;
   color: antiquewhite;
-  font-size: 40px;
-  font-weight: 600;
-  justify-content: center;
+}
+
+#formulaScreen{
+  min-height: 20px;
+  font-family: digital;
+  font-size: 20px;
+  color: orange;
+  text-align: right;
+  vertical-align: text-top;
+  line-height: 20px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
 }
 
 .customBtn{
