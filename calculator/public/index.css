@@ -14,6 +14,10 @@ body, html{
   width: 320px;
   border: 2px solid #47476b;
   background: black;
+  /* default padding is 15px */
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 5px;
 }
 
 #display{
@@ -26,6 +30,13 @@ body, html{
 
 .customBtn{
   height: 65px;
+  font-size: 20px;
+}
+.customBtn button{
+  background: #4d4d4d;
+  border: none;
+  outline: 1px solid black;
+  color: white;
 }
 
 .equalContainer{
@@ -33,4 +44,23 @@ body, html{
 }
 .equalContainer .row{
   height: 100%;
+}
+
+#clear{
+  background: rgb(172, 57, 57);
+  border-color: rgb(172, 57, 57);
+}
+
+#add, #subtract, #multiply, #divide{
+  background: rgb(102, 102, 102);
+}
+
+#equals{
+  background: rgb(0, 68, 102);
+}
+
+button:hover{
+  color: black;
+  outline: .05em solid grey;
+  z-index: 3;
 }
