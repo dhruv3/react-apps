@@ -30,14 +30,14 @@ class ClkSetting extends Component{
 class ClkDisplay extends Component{
   render(){
     return(
-      <div className="row">
+      <div className="row" id="clkDisplay">
         <div className="col-sm-12">
           <div className="col-sm-12 text-center" id="timer-label">
             {this.props.header}
           </div>
         </div>
         <div className="col-sm-12">
-          <div className="offset-sm-2 col-sm-8">
+          <div className="offset-sm-2 col-sm-8" id="clkValueWrapper">
             {this.props.value}
           </div>
         </div>
@@ -79,18 +79,14 @@ class App extends Component {
     this.handleSessionTimer = this.handleSessionTimer.bind(this);
     this.handleReset = this.handleReset.bind(this)
     this.handleStartStop = this.handleStartStop.bind(this)
+    this.audioBeep = ""
   }
 
+  //helper functions
   //inp = 1439 and out = {min: 23, sec: 59}
   convertToMinAndSeconds(inp){
-      let sec = inp%60;
-      if(sec <= 9){
-        sec = '0' + sec;
-      }
-      let min = parseInt(inp/60);
-      if(min <= 9){
-        min = '0' + min;
-      }
+      let sec = this.getTwoDigitString(inp%60);
+      let min = this.getTwoDigitString(parseInt(inp/60));
       return {min: min, sec: sec};
   }
 
@@ -99,6 +95,7 @@ class App extends Component {
     return parseInt(inp.substring(0,2)*60) + parseInt(inp.substring(3))
   }
 
+  //inp = 0 and out = '0'
   getTwoDigitString(inp){
     let ans = inp;
     if(parseInt(inp) <= 9){
@@ -136,6 +133,8 @@ class App extends Component {
               currTimer: currTimer,
               displayVal: displayVal
             })
+            this.audioBeep.volume = 0.2;
+            this.audioBeep.play();
           }
         }, 1000)
       )
@@ -147,6 +146,8 @@ class App extends Component {
         running: false,
         displayVal: this.state.displayVal,
       })
+      this.audioBeep.pause();
+      this.audioBeep.currentTime = 0;
     }
   }
 
@@ -163,14 +164,16 @@ class App extends Component {
   }
 
   handleBreakTimer(e){
+    //check to ensure you cannot update break value when clock is running
     if(this.state.running === true){
       return;
     }
-
     //https://www.youtube.com/watch?v=SpatM1W5wRQ
     //currentTarget vs target
     if(e.currentTarget['id'] == "break-decrement"){
       if(this.state.breakVal > 1){
+        //callback fn added so as to overcome async setState issue
+        //callback fn updates display value as you increment or decrement it
         this.setState({
           breakVal: this.state.breakVal-1
         }, () => {
@@ -204,6 +207,7 @@ class App extends Component {
   }
 
   handleSessionTimer(e){
+    //check to ensure you cannot update break value when clock is running
     if(this.state.running === true){
       return;
     }
@@ -234,8 +238,7 @@ class App extends Component {
               displayVal: this.getTwoDigitString(this.state.sessionVal) + ':00'
             })
           }
-        }
-        )
+        })
       }
       else{
         alert('Cannot set Session timer above 60 mins')
@@ -269,6 +272,9 @@ class App extends Component {
         <ClkControl
           startStopTimer={this.handleStartStop}
           resetTimer={this.handleReset}/>
+        <audio id="beep" preload="auto"
+          src="https://goo.gl/65cBl1"
+          ref={(audio) => { this.audioBeep = audio; }} />
       </div>
     );
   }

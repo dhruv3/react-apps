@@ -15,8 +15,22 @@ body, html{
 }
 
 #clkWrapper{
-  width: 660px;
+  width: 500px;
   background-color: mediumslateblue;
+}
+
+#clkDisplay{
+  border: 7px solid #13353a;
+  margin: 20px auto 10px auto;
+  width: 270px;
+  height: 160px;
+  border-radius: 50px;
+}
+#clkValueWrapper{
+  font-family: digital;
+  font-size: 80px;
+  margin-left: 15px;
+  margin-top: -15px;
 }
 
 .clkHeader{
