@@ -81,16 +81,30 @@ class App extends Component {
     this.handleStartStop = this.handleStartStop.bind(this)
   }
 
+  //inp = 1439 and out = {min: 23, sec: 59}
   convertToMinAndSeconds(inp){
       let sec = inp%60;
-      if(inp%60 <= 9){
+      if(sec <= 9){
         sec = '0' + sec;
       }
-      return {min: parseInt(inp/60), sec: sec};
+      let min = parseInt(inp/60);
+      if(min <= 9){
+        min = '0' + min;
+      }
+      return {min: min, sec: sec};
   }
 
+  //inp = 23:59 and out = 1439
   convertStringToSeconds(inp){
     return parseInt(inp.substring(0,2)*60) + parseInt(inp.substring(3))
+  }
+
+  getTwoDigitString(inp){
+    let ans = inp;
+    if(parseInt(inp) <= 9){
+      ans = '0' + inp;
+    }
+    return ans;
   }
 
   handleStartStop(){
@@ -106,14 +120,29 @@ class App extends Component {
           this.setState({
             displayVal: `${min}:${sec}`,
           })
+          if(min === '00' && sec === '00'){
+            let currTimer = this.state.currTimer;
+            let displayVal = '';
+            if(currTimer == 'Session'){
+              currTimer = 'Break';
+              displayVal = this.getTwoDigitString(this.state.breakVal) + ':00';
+            }
+            else{
+              currTimer = 'Session';
+              displayVal = this.getTwoDigitString(this.state.sessionVal) + ':00';
+            }
+            time = this.convertStringToSeconds(displayVal);
+            this.setState({
+              currTimer: currTimer,
+              displayVal: displayVal
+            })
+          }
         }, 1000)
       )
     }
     else{
       this.timeout.map(elem => clearTimeout(elem))
       this.timeout = []
-      let time = this.state.sessionVal * 60
-      let {min, sec} = this.convertToMinAndSeconds(time);
       this.setState({
         running: false,
         displayVal: this.state.displayVal,
@@ -122,10 +151,14 @@ class App extends Component {
   }
 
   handleReset(){
+    this.timeout.map(elem => clearTimeout(elem))
+    this.timeout = []
     this.setState({
       breakVal: 5,
       sessionVal: 25,
-      running: false
+      displayVal: '25:00',
+      running: false,
+      currTimer: 'Session'
     })
   }
 
@@ -137,19 +170,31 @@ class App extends Component {
     //https://www.youtube.com/watch?v=SpatM1W5wRQ
     //currentTarget vs target
     if(e.currentTarget['id'] == "break-decrement"){
-      if(this.state.breakVal > 0){
+      if(this.state.breakVal > 1){
         this.setState({
           breakVal: this.state.breakVal-1
+        }, () => {
+          if(this.state.currTimer === 'Break'){
+            this.setState({
+              displayVal: this.getTwoDigitString(this.state.breakVal) + ':00'
+            })
+          }
         })
       }
       else{
-        alert('Cannot set Break timer below 0 mins')
+        alert('Cannot set Break timer below 1 min')
       }
     }
     else{
       if(this.state.breakVal < 60){
         this.setState({
           breakVal: this.state.breakVal+1
+        }, () => {
+          if(this.state.currTimer === 'Break'){
+            this.setState({
+              displayVal: this.getTwoDigitString(this.state.breakVal) + ':00'
+            })
+          }
         })
       }
       else{
@@ -164,20 +209,33 @@ class App extends Component {
     }
 
     if(e.currentTarget['id'] == "session-decrement"){
-      if(this.state.sessionVal > 0){
+      if(this.state.sessionVal > 1){
         this.setState({
           sessionVal: this.state.sessionVal-1
+        }, () => {
+          if(this.state.currTimer === 'Session'){
+            this.setState({
+              displayVal: this.getTwoDigitString(this.state.sessionVal) + ':00'
+            })
+          }
         })
       }
       else{
-        alert('Cannot set Session timer below 0 mins')
+        alert('Cannot set Session timer below 1 min')
       }
     }
     else{
       if(this.state.sessionVal < 60){
         this.setState({
           sessionVal: this.state.sessionVal+1
-        })
+        }, () => {
+          if(this.state.currTimer === 'Session'){
+            this.setState({
+              displayVal: this.getTwoDigitString(this.state.sessionVal) + ':00'
+            })
+          }
+        }
+        )
       }
       else{
         alert('Cannot set Session timer above 60 mins')
