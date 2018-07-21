@@ -1,5 +1,45 @@
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
+body, html{
+    height: 100%;
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    font-family: 'Righteous';
+}
+
+#root{
+  height:100vh;
+  background-color: lightcoral;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#clkWrapper{
+  width: 660px;
+  background-color: mediumslateblue;
+}
+
+.clkHeader{
+  font-size: 50px;
+}
+
+.arrowsBtn, #start_stop, #reset{
+  background: none;
+  outline: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+#start_stop{
+  margin-right: 50px;
+}
+
+button.arrowsBtn:focus{
+  outline: none;
+}
+
+.settingValue{
+  display: inline-block;
+  margin: 0 20px;
 }
