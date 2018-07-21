@@ -9,13 +9,15 @@ class ClkSetting extends Component{
         </div>
         <div className="row">
           <div className="col-sm-12">
-            <button id= {`${this.props.name}-decrement`} className="arrowsBtn">
+            <button id= {`${this.props.name}-decrement`} className="arrowsBtn"
+              onClick={this.props.updateTimer}>
               <i className="fa fa-arrow-down"></i>
             </button>
             <div id={`${this.props.name}-val`} className="settingValue">
               {this.props.defaultVal}
             </div>
-            <button id={`${this.props.name}-increment`} className="arrowsBtn">
+            <button id={`${this.props.name}-increment`} className="arrowsBtn"
+              onClick={this.props.updateTimer}>
               <i className="fa fa-arrow-up"></i>
             </button>
           </div>
@@ -53,7 +55,7 @@ class ClkControl extends Component{
             <i className="fa fa-play"></i>
             <i className="fa fa-pause"></i>
           </button>
-          <button id="reset">
+          <button id="reset" onClick={this.props.resetTimer}>
             <i className="fa fa-undo"></i>
           </button>
         </div>
@@ -70,7 +72,66 @@ class App extends Component {
       sessionVal: 25,
       currTimer: 'Session'
     }
+    this.handleBreakTimer = this.handleBreakTimer.bind(this);
+    this.handleSessionTimer = this.handleSessionTimer.bind(this);
+    this.handleReset = this.handleReset.bind(this)
   }
+
+  handleReset(){
+    this.setState({
+      breakVal: 5,
+      sessionVal: 25
+    })
+  }
+
+  handleBreakTimer(e){
+    //https://www.youtube.com/watch?v=SpatM1W5wRQ
+    //currentTarget vs target
+    if(e.currentTarget['id'] == "break-decrement"){
+      if(this.state.breakVal > 0){
+        this.setState({
+          breakVal: this.state.breakVal-1
+        })
+      }
+      else{
+        alert('Cannot set Break timer below 0 mins')
+      }
+    }
+    else{
+      if(this.state.breakVal < 60){
+        this.setState({
+          breakVal: this.state.breakVal+1
+        })
+      }
+      else{
+        alert('Cannot set Break timer above 60 mins')
+      }
+    }
+  }
+
+  handleSessionTimer(e){
+    if(e.currentTarget['id'] == "session-decrement"){
+      if(this.state.sessionVal > 0){
+        this.setState({
+          sessionVal: this.state.sessionVal-1
+        })
+      }
+      else{
+        alert('Cannot set Session timer below 0 mins')
+      }
+    }
+    else{
+      if(this.state.sessionVal < 60){
+        this.setState({
+          sessionVal: this.state.sessionVal+1
+        })
+      }
+      else{
+        alert('Cannot set Session timer above 60 mins')
+      }
+    }
+  }
+
   render() {
     return (
       <div className="container" id="clkWrapper">
@@ -80,19 +141,22 @@ class App extends Component {
             <ClkSetting
               name = "break"
               header = "Break Length"
-              defaultVal = {this.state.breakVal}/>
+              defaultVal = {this.state.breakVal}
+              updateTimer={this.handleBreakTimer}/>
           </div>
           <div className="col-sm-6">
             <ClkSetting
               name = "session"
               header = "Session Length"
-              defaultVal = {this.state.sessionVal}/>
+              defaultVal = {this.state.sessionVal}
+              updateTimer={this.handleSessionTimer}/>
           </div>
         </div>
         <ClkDisplay
           header={this.state.currTimer}
           value={this.state.sessionVal}/>
-        <ClkControl/>
+        <ClkControl
+          resetTimer={this.handleReset}/>
       </div>
     );
   }
