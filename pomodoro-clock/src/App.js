@@ -32,7 +32,7 @@ class ClkDisplay extends Component{
     return(
       <div className="row">
         <div className="col-sm-12">
-          <div className="col-sm-12 text-center" id="curr-label">
+          <div className="col-sm-12 text-center" id="timer-label">
             {this.props.header}
           </div>
         </div>
@@ -51,7 +51,7 @@ class ClkControl extends Component{
     return(
       <div className="row">
         <div className="col-sm-12">
-          <button id="start_stop">
+          <button id="start_stop" onClick={this.props.startStopTimer}>
             <i className="fa fa-play"></i>
             <i className="fa fa-pause"></i>
           </button>
@@ -67,24 +67,73 @@ class ClkControl extends Component{
 class App extends Component {
   constructor(){
     super();
+    this.timeout = []
     this.state = {
       breakVal: 5,
       sessionVal: 25,
+      displayVal: "25:00",
+      running: false,
       currTimer: 'Session'
     }
     this.handleBreakTimer = this.handleBreakTimer.bind(this);
     this.handleSessionTimer = this.handleSessionTimer.bind(this);
     this.handleReset = this.handleReset.bind(this)
+    this.handleStartStop = this.handleStartStop.bind(this)
+  }
+
+  convertToMinAndSeconds(inp){
+      let sec = inp%60;
+      if(inp%60 <= 9){
+        sec = '0' + sec;
+      }
+      return {min: parseInt(inp/60), sec: sec};
+  }
+
+  convertStringToSeconds(inp){
+    return parseInt(inp.substring(0,2)*60) + parseInt(inp.substring(3))
+  }
+
+  handleStartStop(){
+    if(this.state.running === false){
+      this.setState({
+        running: true,
+      })
+      let time = this.convertStringToSeconds(this.state.displayVal)
+      this.timeout.push(
+        setInterval(() => {
+          time = time - 1;
+          let {min, sec} = this.convertToMinAndSeconds(time);
+          this.setState({
+            displayVal: `${min}:${sec}`,
+          })
+        }, 1000)
+      )
+    }
+    else{
+      this.timeout.map(elem => clearTimeout(elem))
+      this.timeout = []
+      let time = this.state.sessionVal * 60
+      let {min, sec} = this.convertToMinAndSeconds(time);
+      this.setState({
+        running: false,
+        displayVal: this.state.displayVal,
+      })
+    }
   }
 
   handleReset(){
     this.setState({
       breakVal: 5,
-      sessionVal: 25
+      sessionVal: 25,
+      running: false
     })
   }
 
   handleBreakTimer(e){
+    if(this.state.running === true){
+      return;
+    }
+
     //https://www.youtube.com/watch?v=SpatM1W5wRQ
     //currentTarget vs target
     if(e.currentTarget['id'] == "break-decrement"){
@@ -110,6 +159,10 @@ class App extends Component {
   }
 
   handleSessionTimer(e){
+    if(this.state.running === true){
+      return;
+    }
+
     if(e.currentTarget['id'] == "session-decrement"){
       if(this.state.sessionVal > 0){
         this.setState({
@@ -154,8 +207,9 @@ class App extends Component {
         </div>
         <ClkDisplay
           header={this.state.currTimer}
-          value={this.state.sessionVal}/>
+          value={this.state.displayVal}/>
         <ClkControl
+          startStopTimer={this.handleStartStop}
           resetTimer={this.handleReset}/>
       </div>
     );
