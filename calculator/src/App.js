@@ -73,16 +73,18 @@ class App extends Component {
       return;
     }
     let num = e.target.value
-    let newVal = '0';
+    let newDisplayVal = '0';
     if(this.state.displayVal === '0' || this.state.displayVal === '+' || this.state.displayVal === '/'
-      || this.state.displayVal === '+' || this.state.displayVal === '-'){
-      newVal = num
+      || this.state.displayVal === '*' || this.state.displayVal === '-'){
+      newDisplayVal = num
     }
     else{
-      newVal = this.state.displayVal + num
+      newDisplayVal = this.state.displayVal + num
     }
+    let newFormulaVal = this.state.formulaVal + num;
     this.setState({
-      displayVal: newVal
+      displayVal: newDisplayVal,
+      formulaVal: newFormulaVal
     })
   }
   handleDecimalClick(e){
@@ -90,15 +92,40 @@ class App extends Component {
       return;
     }
     let currDisp = this.state.displayVal;
-    currDisp += "."
+    let newFormulaVal = this.state.formulaVal;
+    if( currDisp === '+' || currDisp === '/'
+      || currDisp === '*' || currDisp === '-'){
+      currDisp = "0.";
+      newFormulaVal += "0.";
+    }
+    else{
+      currDisp += ".";
+      newFormulaVal += ".";
+    }
     this.setState({
-      displayVal: currDisp
+      displayVal: currDisp,
+      formulaVal: newFormulaVal
     })
   }
   handleOperatorClick(e){
     let op = e.target.value
+    //check for no number pressed and operator is selected
+    //only minus operator can be allowed as an initial operator(first character in formula)
+    if(this.state.formulaVal.length === 0 && op != '-'){
+      return;
+    }
+    //check to prevent things like: /- or -+ or -*
+    let currFormulaVal = this.state.formulaVal;
+    let lastFormulaValChar = currFormulaVal.substr(currFormulaVal.length - 1);
+    if( lastFormulaValChar === '+' || lastFormulaValChar === '/'
+      || lastFormulaValChar === '*' || lastFormulaValChar === '-'){
+      currFormulaVal = currFormulaVal.substr(0, currFormulaVal.length - 1);
+    }
+
+    let newFormulaVal = currFormulaVal + op;
     this.setState({
-      displayVal: op
+      displayVal: op,
+      formulaVal: newFormulaVal
     })
   }
   handleClearClick(e){
