@@ -40,7 +40,7 @@ class ButtonPad extends Component{
           </div>
           <div className="col-sm-3 customBtn equalContainer">
             <div className="row">
-                <button id="equals" className="col-sm-12" onClick={this.props.handleEqualClick}>=</button>
+                <button id="equals" className="col-sm-12" onClick={this.props.equalClick}>=</button>
             </div>
           </div>
         </div>
@@ -74,14 +74,22 @@ class App extends Component {
     }
     let num = e.target.value
     let newDisplayVal = '0';
-    if(this.state.displayVal === '0' || this.state.displayVal === '+' || this.state.displayVal === '/'
-      || this.state.displayVal === '*' || this.state.displayVal === '-'){
-      newDisplayVal = num
+    let newFormulaVal = this.state.formulaVal;
+    if(newFormulaVal.includes('=')){
+      newFormulaVal = num;
+      newDisplayVal = num;
     }
     else{
-      newDisplayVal = this.state.displayVal + num
+      newFormulaVal = this.state.formulaVal + num;
+      //overwrite the display value if displayed value is: 0 + - * /
+      if(this.state.displayVal === '0' || this.state.displayVal === '+' || this.state.displayVal === '/'
+        || this.state.displayVal === '*' || this.state.displayVal === '-'){
+        newDisplayVal = num
+      }
+      else{
+        newDisplayVal = this.state.displayVal + num
+      }
     }
-    let newFormulaVal = this.state.formulaVal + num;
     this.setState({
       displayVal: newDisplayVal,
       formulaVal: newFormulaVal
@@ -102,11 +110,18 @@ class App extends Component {
       currDisp += ".";
       newFormulaVal += ".";
     }
+    //we have evaluated one calculation then pressed equal second timeout
+    //preventing bugs like 8*2=16.
+    if(newFormulaVal.includes("=")){
+      currDisp = "0.";
+      newFormulaVal = "0.";
+    }
     this.setState({
       displayVal: currDisp,
       formulaVal: newFormulaVal
     })
   }
+
   handleOperatorClick(e){
     let op = e.target.value
     //check for no number pressed and operator is selected
@@ -114,8 +129,12 @@ class App extends Component {
     if(this.state.formulaVal.length === 0 && op != '-'){
       return;
     }
-    //check to prevent things like: /- or -+ or -*
     let currFormulaVal = this.state.formulaVal;
+    //if equal is present then extract content after equal sign
+    if(currFormulaVal.includes("=")){
+      currFormulaVal = currFormulaVal.substr(currFormulaVal.indexOf("=")+1)
+    }
+    //check to prevent things like: /- or -+ or -*
     let lastFormulaValChar = currFormulaVal.substr(currFormulaVal.length - 1);
     if( lastFormulaValChar === '+' || lastFormulaValChar === '/'
       || lastFormulaValChar === '*' || lastFormulaValChar === '-'){
@@ -128,14 +147,28 @@ class App extends Component {
       formulaVal: newFormulaVal
     })
   }
+
   handleClearClick(e){
     this.setState({
       displayVal: '0',
       formulaVal: ''
     })
   }
-  handleEqualClick(e){
 
+  handleEqualClick(e){
+    //if formula is like: 6+2/8-4+ (there is an operator at the end)
+    //we are simply removing the operator
+    let currFormulaVal = this.state.formulaVal;
+    let lastFormulaValChar = currFormulaVal.substr(currFormulaVal.length - 1);
+    if( lastFormulaValChar === '+' || lastFormulaValChar === '/'
+      || lastFormulaValChar === '*' || lastFormulaValChar === '-'){
+      currFormulaVal = currFormulaVal.substr(0, currFormulaVal.length - 1);
+    }
+    let out = eval(currFormulaVal)
+    this.setState({
+      displayVal: ""+out,
+      formulaVal: currFormulaVal+"="+out
+    })
   }
   render() {
     return (
