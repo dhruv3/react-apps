@@ -1,5 +1,9 @@
-# ReactJS
+# React Projects
 
-Using this repository to create mini ReactJS projects
-
-[LIVE implementation](https://9orvkr506o.codesandbox.io/) for Joe Maddalone [tutorial](https://egghead.io/courses/start-learning-react). Editable [sandbox link](https://codesandbox.io/s/9orvkr506o). 
+LIVE version of projects created using ReactJS
+* [Random Quote Generator](https://yq920kk6jv.codesandbox.io/)
+* [Pomodoro Clock](https://ryyxxyvyn4.codesandbox.io/)
+* [JSX Transpiler](https://j55rxm55y.codesandbox.io/)
+* [Drum Machine](https://znl2j64wql.codesandbox.io/)
+* [Simple Calculator](https://81r749n1l2.codesandbox.io/)
+* [Markdown Previewer](https://x2j73qxnrw.codesandbox.io/)
