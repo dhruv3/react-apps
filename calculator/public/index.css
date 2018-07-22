@@ -23,6 +23,11 @@ body, html{
 #display{
   height: 45px;
   color: antiquewhite;
+  font-size: 29px;
+  font-family: digital;
+  color: white;
+  text-align: right;
+  line-height: 35px;
 }
 
 #formulaScreen{
