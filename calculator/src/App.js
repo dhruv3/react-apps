@@ -156,9 +156,13 @@ class App extends Component {
   }
 
   handleEqualClick(e){
-    //if formula is like: 6+2/8-4+ (there is an operator at the end)
-    //we are simply removing the operator
     let currFormulaVal = this.state.formulaVal;
+    //check to handle if two times equal is pressed
+    if(currFormulaVal.includes("=")){
+      return;
+    }
+    ////if formula is like: 6+2/8-4+ (there is an operator at the end)
+    //we are simply removing the operator
     let lastFormulaValChar = currFormulaVal.substr(currFormulaVal.length - 1);
     if( lastFormulaValChar === '+' || lastFormulaValChar === '/'
       || lastFormulaValChar === '*' || lastFormulaValChar === '-'){
