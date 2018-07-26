@@ -7,9 +7,11 @@ import {Wrapper} from './LifeCycleMethods';
 import {Fetch} from './fetchAPI';
 import {HOCClass} from './HOC';
 import {ExtendChildren} from './extendChildrenProps';
+import {FCC} from './fcc';
 
 const Elem = () => (
   <div>
+    <FCC/>
     <h1>Extend Children</h1>
     <ExtendChildren/>
     <h1>Higher Order Component</h1>
