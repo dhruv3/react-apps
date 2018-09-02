@@ -32,7 +32,7 @@ class App extends Component {
       <div className="container">
         <Driver updateDriverCallBack={this.updateDriverCallBack.bind(this)}/>
         <Trip selectListContent={this.state.mainObj.keys()} entireMapObj={this.state.mainObj} updateMapObject={this.addTripToMap.bind(this)}/>
-        <ReportGenerator/>
+        <ReportGenerator entireMapObj={this.state.mainObj}/>
       </div>
     );
   }
