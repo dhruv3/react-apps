@@ -1,9 +1,14 @@
 .container{
-  width: 500px;
+  width: 600px;
   height: 400px;
-  background-color: lightgreen;
+  background-color: lavenderblush;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
+.driverContainer{
+  margin-top: 30px;
+}
 .driverContainer h3, .tripContainer h3{
   text-align: center;
   color: deeppink;
@@ -19,4 +24,35 @@
 }
 .driverInputContainer button{
   height: 40px;
+}
+
+input, label {
+  display:block;
+}
+
+.tripContainer{
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.tripContainer h3{
+  margin-bottom: 0px;
+}
+
+.tripInputContainer{
+  display: flex;
+  justify-content: space-evenly;
+  height: 100px;
+  align-items: center;
+}
+
+.getTripInput input, .getTripInput select{
+  width: 120px;
+  height: 30px;
+}
+
+.genReport{
+  display: flex;
+  justify-content: center;
 }

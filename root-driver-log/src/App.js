@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <div className="container">
         <Driver updateDriverCallBack={this.updateDriverCallBack.bind(this)}/>
-        <Trip selectListContent={this.state.mainObj.keys}/>
+        <Trip selectListContent={this.state.mainObj.keys()}/>
         <ReportGenerator/>
       </div>
     );
