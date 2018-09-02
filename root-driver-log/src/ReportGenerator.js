@@ -4,7 +4,8 @@ class ReportGenerator extends Component{
   render(){
     return(
       <div className="genReport">
-        <button class="btn btn-primary">Create Report!</button>
+        <h3>Generate Report</h3>
+        <button className="btn btn-primary">Create Report!</button>
       </div>
     )
   }

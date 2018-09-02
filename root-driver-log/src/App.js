@@ -16,6 +16,7 @@ class App extends Component {
     if(Map.get(driverName) == null && Map.get(driverName) !== ""){
       let obj = {'total_dist': 0, 'total_time': 0, 'avg_speed': 0}
       Map.set(driverName, obj)
+      this.setState({mainObj: Map})
     }
     else{
       alert("Check driver name please, my dude")

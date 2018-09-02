@@ -1,15 +1,19 @@
 .container{
   width: 600px;
-  height: 400px;
   background-color: lavenderblush;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
+.container > div{
+  padding: 10px;
+  border: 2px dotted red;
+  margin-bottom: 20px;
+}
 .driverContainer{
   margin-top: 30px;
 }
-.driverContainer h3, .tripContainer h3{
+h3{
   text-align: center;
   color: deeppink;
 }
@@ -31,7 +35,7 @@ input, label {
 }
 
 .tripContainer{
-  height: 100px;
+  height: 180px;
   display: flex;
   flex-direction: column;
 }
@@ -52,7 +56,14 @@ input, label {
   height: 30px;
 }
 
+.registerTripBtn{
+  display: flex;
+  justify-content: center;
+}
+
 .genReport{
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }

@@ -11,7 +11,7 @@ class Trip extends Component{
     let items = []
     var result = iter.next();
     while (!result.done) {
-      items.push(<option>{result.value}</option>)
+      items.push(<option value={result.value} key={result.value}>{result.value}</option>)
       result = iter.next();
     }
     return items;
@@ -19,28 +19,32 @@ class Trip extends Component{
   render(){
     return(
       <div className="tripContainer">
-        <h3>Register Trip:</h3>
+        <h3>Register Trip</h3>
         <div className="tripInputContainer">
           <div className="getTripInput">
-            <label for="driver">Select Driver:</label>
+            <label htmlFor="driver">Select Driver:</label>
             <select name="driver">
+              <option value="" disabled selected>Select..</option>
               {this.createOptions(this.props.selectListContent)}
             </select>
           </div>
           <div className="getTripInput">
-            <label for="start-time">Start Time:</label>
+            <label htmlFor="start-time">Start Time:</label>
             <input type="time" name="start-time" min="0:00" max="23:59" required />
           </div>
           <div className="getTripInput">
-            <label for="end-time">End Time:</label>
+            <label htmlFor="end-time">End Time:</label>
             <input type="time" name="end-time" min="0:00" max="23:59" required />
           </div>
           <div className="getTripInput">
-            <label for="distance">Distance Covered:</label>
+            <label htmlFor="distance">Distance Covered:</label>
             <input type="number" name="distance"
                        placeholder="Enter distance..."
                        min="0" max="10000" />
           </div>
+        </div>
+        <div className="registerTripBtn">
+          <button className="btn btn-primary">Register Trip!</button>
         </div>
       </div>
     )
