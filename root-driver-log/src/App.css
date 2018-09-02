@@ -1,0 +1,22 @@
+.container{
+  width: 500px;
+  height: 400px;
+  background-color: lightgreen;
+}
+
+.driverContainer h3, .tripContainer h3{
+  text-align: center;
+  color: deeppink;
+}
+.driverInputContainer{
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.driverInputContainer input{
+  height: 40px;
+  width: 200px;
+}
+.driverInputContainer button{
+  height: 40px;
+}

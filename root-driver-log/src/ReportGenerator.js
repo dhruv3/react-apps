@@ -3,7 +3,9 @@ import React, { Component } from 'react';
 class ReportGenerator extends Component{
   render(){
     return(
-      <div></div>
+      <div className="genReport">
+        <button>Create Report!</button>
+      </div>
     )
   }
 }

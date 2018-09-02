@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
 
 class Trip extends Component{
+  constructor(){
+    super()
+    this.state = {
+
+    }
+  }
   render(){
     return(
-      <div></div>
+      <div className="tripContainer">
+        <h3>Register Trip:</h3>
+        <div className="tripInputContainer">
+          
+        </div>
+      </div>
     )
   }
 }
