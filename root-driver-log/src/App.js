@@ -22,11 +22,16 @@ class App extends Component {
       alert("Check driver name please, my dude")
     }
   }
+  addTripToMap(Map){
+    this.setState({
+      mainObj: Map
+    })
+  }
   render() {
     return (
       <div className="container">
         <Driver updateDriverCallBack={this.updateDriverCallBack.bind(this)}/>
-        <Trip selectListContent={this.state.mainObj.keys()}/>
+        <Trip selectListContent={this.state.mainObj.keys()} entireMapObj={this.state.mainObj} updateMapObject={this.addTripToMap.bind(this)}/>
         <ReportGenerator/>
       </div>
     );
