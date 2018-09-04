@@ -9,3 +9,31 @@ body, html{
   justify-content: center;
   align-items: center;
 }
+
+.container{
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightgreen;
+  font-family: sans-serif;
+  color: royalblue;
+}
+
+.container img{
+  width: 100px;
+}
+
+.temp{
+  font-size: 20px;
+}
+
+#tempUnit{
+  color: orangered;
+  font-weight: 900;
+  cursor: pointer;
+}
+
+h3{
+  color: white;
+}

@@ -7,7 +7,8 @@ class App extends Component {
     this.state = {
       location: "",
       type: "",
-      icon: ""
+      icon: "",
+      temp: ""
     };
   }
 
@@ -18,13 +19,15 @@ class App extends Component {
         this.setState({
           location: response.name,
           type: response.weather[0]["main"],
-          icon: response.weather[0]["icon"]
+          icon: response.weather[0]["icon"],
+          temp: response["main"]["temp"]
         })
       })
   }
 
   componentDidMount(){
-    navigator.geolocation.getCurrentPosition((position) => {
+    const location = window.navigator && window.navigator.geolocation
+    location.getCurrentPosition((position) => {
       const api = `https://fcc-weather-api.glitch.me/api/current?lat=${position.coords.latitude}&lon=${position.coords.longitude}`;
       this.fetchWeather(api);
     });
@@ -33,7 +36,9 @@ class App extends Component {
   render() {
     return (
       <div className="container">
+        <h3>Weather App</h3>
         <h1>{this.state.location}</h1>
+        <div className="temp">{this.state.temp}<span id="tempUnit"> C</span></div>
         <div><img src={this.state.icon}/></div>
         <p>{this.state.type}</p>
       </div>
