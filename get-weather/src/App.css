@@ -34,6 +34,10 @@ body, html{
   cursor: pointer;
 }
 
+#tempVal{
+  margin-right: 5px;
+}
+
 h3{
   color: white;
 }

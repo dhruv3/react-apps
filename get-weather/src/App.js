@@ -8,7 +8,8 @@ class App extends Component {
       location: "",
       type: "",
       icon: "",
-      temp: ""
+      temp: "",
+      unit: "C"
     };
   }
 
@@ -33,12 +34,30 @@ class App extends Component {
     });
   }
 
+  changeUnit(){
+    if(this.state.unit === "C"){
+      this.setState({
+        temp: (parseFloat(this.state.temp*9/5)) + 32,
+        unit: "F"
+      })
+    }
+    else{
+      this.setState({
+        temp: parseFloat((this.state.temp - 32)*5/9),
+        unit: "C"
+      })
+    }
+  }
+
   render() {
     return (
       <div className="container">
         <h3>Weather App</h3>
         <h1>{this.state.location}</h1>
-        <div className="temp">{this.state.temp}<span id="tempUnit"> C</span></div>
+        <div className="temp">
+          <span id="tempVal">{this.state.temp}</span>
+          <span id="tempUnit" onClick={this.changeUnit.bind(this)}>{this.state.unit}</span>
+        </div>
         <div><img src={this.state.icon}/></div>
         <p>{this.state.type}</p>
       </div>
