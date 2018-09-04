@@ -5,10 +5,10 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      location: "",
-      type: "",
-      icon: "",
-      temp: "",
+      location: "Default Location",
+      type: "Cloudy",
+      icon: "https://cdn.glitch.com/6e8889e5-7a72-48f0-a061-863548450de5%2F04d.png?1499366020964",
+      temp: "25",
       unit: "C"
     };
   }
