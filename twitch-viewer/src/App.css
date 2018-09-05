@@ -1,0 +1,11 @@
+body, html{
+    height: 100%;
+}
+
+#root{
+  height:100vh;
+  background-color: honeydew;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
