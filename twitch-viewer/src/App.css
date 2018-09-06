@@ -4,8 +4,39 @@ body, html{
 
 #root{
   height:100vh;
-  background-color: honeydew;
+  background-color: aliceblue;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: sans-serif;
+}
+
+.container{
+  width: 80%;
+}
+
+.header{
+  height: 80px;
+  padding: 20px;
+  background-color: darkkhaki;
+  color: cornsilk;
+}
+
+.streamSelectContainer{
+  height: 120px;
+  display: flex;
+  justify-content: space-around;
+  background: cornsilk;
+  align-items: center;
+}
+
+.selector{
+  height: 80px;
+  width: 200px;
+  background-color: darkgray;
+  text-align: center;
+  line-height: 80px;
+  color: white;
+  font-size: 30px;
+  cursor: pointer;
 }

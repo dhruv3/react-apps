@@ -8,14 +8,15 @@ class ListContainer extends Component {
     };
   }
   componentDidMount() {
-    fetch("https://cors-anywhere.herokuapp.com/https://wind-bow.gomix.me/twitch-api/channels/freecodecamp/")
+    let channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "storbeck", "habathcx", "RobotCaleb", "noobs2ninjas","admiralbulldog","comster404"];
+    fetch("https://cors-anywhere.herokuapp.com/https://wind-bow.gomix.me/twitch-api/streams/ESL_SC2/")
       .then(res => res.json())
       .then(
         (result) => {
-          debugger;
+          // debugger;
         },
         (error) => {
-          debugger;
+          // debugger;
         }
       )
   }
