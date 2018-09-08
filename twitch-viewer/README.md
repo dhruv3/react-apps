@@ -2,9 +2,9 @@
 
 [Problem Statement](https://learn.freecodecamp.org/coding-interview-prep/take-home-projects/use-the-twitch-json-api/)
 
-[Live Link]()
+[Live Link](https://qx1r8kq7ow.codesandbox.io/)
 
-[CodeSandBox Link]()
+[CodeSandBox Link](https://codesandbox.io/s/qx1r8kq7ow)
 
 Fulfill the following user stories:
 
