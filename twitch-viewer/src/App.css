@@ -38,12 +38,16 @@ a{
 .selector{
   height: 80px;
   width: 200px;
-  background-color: darkgray;
+  background-color: darkred;
   text-align: center;
   line-height: 80px;
   color: white;
   font-size: 30px;
   cursor: pointer;
+}
+
+.selector.filterSelected{
+  background-color: darkgreen;
 }
 
 .listContainer{

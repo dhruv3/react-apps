@@ -14,7 +14,7 @@ class App extends Component {
 
   updateSelector(selector){
     this.setState({
-      filter: selector.target.innerText.toLowerCase()
+      filter: selector
     })
   }
 

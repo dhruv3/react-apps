@@ -9,6 +9,7 @@ class ListContainer extends Component {
     this.streamRefs = []
     this.checkStreamState = this.checkStreamState.bind(this)
   }
+
   componentDidMount() {
     const channels = ["ESL_SC2", "OgamingSC2", "cretetion", "freecodecamp", "habathcx"];
     const promiseArr = []
@@ -39,7 +40,8 @@ class ListContainer extends Component {
                 )
       this.checkStreamState(promiseStreamStateArr)
   }
-  checkStreamState(promiseStreamStateArr, filter=null){
+
+  checkStreamState(promiseStreamStateArr){
     //Check about this later
     let self = this;
     Promise.all(promiseStreamStateArr).then((vals) => {
@@ -53,7 +55,7 @@ class ListContainer extends Component {
       }
     })
   }
-  
+
   componentWillReceiveProps(nextProps){
     if(nextProps.currSelector != null){
       if(nextProps.currSelector === "all"){
@@ -88,6 +90,7 @@ class ListContainer extends Component {
       }
     }
   }
+
   render() {
     return (
       <div className="listContainer">
