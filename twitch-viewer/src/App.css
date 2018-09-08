@@ -2,6 +2,11 @@ body, html{
     height: 100%;
 }
 
+a{
+  text-decoration: none;
+  color: cornsilk;
+}
+
 #root{
   height:100vh;
   background-color: aliceblue;
@@ -48,11 +53,27 @@ body, html{
 }
 
 .listItem{
-  display: flex;
   background-color: darkkhaki;
   border: 1px solid black;
   padding: 10px;
   align-items: center;
+  color: cornsilk;
+}
+
+.listItem.noDisplay{
+  display: none;
+}
+
+.listItem.display{
+  display: flex;
+}
+
+.listItem.online{
+  background-color: darkgreen;
+}
+
+.listItem.offline{
+  background-color: darkred;
 }
 
 .listItem img{

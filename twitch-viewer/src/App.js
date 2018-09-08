@@ -25,7 +25,7 @@ class App extends Component {
           <h1>Twitch Streamers</h1>
         </div>
         <SelectStreamFilter updateSelector={this.updateSelector}/>
-        <ListContainer/>
+        <ListContainer currSelector={this.state.filter}/>
       </div>
     );
   }
