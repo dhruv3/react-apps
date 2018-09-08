@@ -40,3 +40,37 @@ body, html{
   font-size: 30px;
   cursor: pointer;
 }
+
+.listContainer{
+  padding: 40px;
+  padding-top: 0px;
+  background: cornsilk;
+}
+
+.listItem{
+  display: flex;
+  background-color: darkkhaki;
+  border: 1px solid black;
+  padding: 10px;
+  align-items: center;
+}
+
+.listItem img{
+  max-width: 50px;
+  max-height: 50px;
+  border-radius: 50%;
+  border: 3px solid #e1e1e6;
+}
+
+.listItem .logo{
+  flex: 1;
+  text-align: center;
+}
+
+.listItem .display_name{
+  flex: 1;
+}
+
+.listItem .status{
+  flex: 2;
+}
