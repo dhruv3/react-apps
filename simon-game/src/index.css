@@ -1,5 +1,33 @@
+html{
+  background: url('http://cdn.backgroundhost.com/backgrounds/subtlepatterns/green_dust_scratch.png')
+}
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  height: 100%;
+}
+
+#root{
+  height:100vh;
+  background-color: honeydew;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  background-color: azure;
+}
+
+.controller{
+  height: 100px;
+  background-color: cornflowerblue;
+}
+
+.btnContainer{
+  height: 300px;
 }
