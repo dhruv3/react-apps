@@ -4,6 +4,30 @@
   border-radius: 50%;
 }
 
+.audioDiv:hover{
+  cursor: pointer;
+}
 .audioDiv.red{
-  background-color: red;
+  background-color: #9f0f17;
+}
+.audioDiv.red:hover{
+  background-color: #ff4c4c;
+}
+.audioDiv.green{
+  background-color: #00a74a;
+}
+.audioDiv.green:hover{
+  background-color: #13ff7c;
+}
+.audioDiv.yellow{
+  background-color: #cca707;
+}
+.audioDiv.yellow:hover{
+  background-color: #fed93f;
+}
+.audioDiv.blue{
+  background-color: #094a8f;
+}
+.audioDiv.blue:hover{
+  background-color: #1c8cff;
 }
