@@ -26,6 +26,9 @@ body {
 .controller{
   height: 100px;
   background-color: cornflowerblue;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .btnContainer{

@@ -4,11 +4,11 @@ import './ToggleBtnStyle.css';
 class ToggleBtn extends Component {
   render() {
     return (
-      <div>
+      <div className="sliderBtnContainer">
         <div>{this.props.name}</div>
-        <label class="switch">
+        <label className="switch" onClick={this.props.onClickCallBack}>
           <input type="checkbox"/>
-          <span class="slider round"></span>
+          <span className="slider round"></span>
         </label>
       </div>
     )
