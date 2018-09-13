@@ -31,6 +31,8 @@ body {
   align-items: center;
 }
 
-.btnContainer{
-  height: 300px;
+.btnLvl{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 30px;
 }

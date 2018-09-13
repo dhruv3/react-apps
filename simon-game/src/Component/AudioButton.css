@@ -1,0 +1,9 @@
+.audioDiv{
+  height: 10vw;
+  width: 10vw;
+  border-radius: 50%;
+}
+
+.audioDiv.red{
+  background-color: red;
+}
