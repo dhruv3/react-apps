@@ -24,6 +24,9 @@ class ButtonContainer extends Component {
       audio: "https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"
     }]
   }
+  getDerivedStateFromProps(nextProps, prevState){
+    debugger;
+  }
   render() {
     return (
       <div className="btnContainer">

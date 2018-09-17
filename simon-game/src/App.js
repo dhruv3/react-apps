@@ -8,18 +8,21 @@ class App extends Component {
     super(props);
     this.state = {
       pattern: "",
+      selectBtn: "",
     };
     this.playPressed = this.playPressed.bind(this);
   }
   playPressed(){
-    const pattern = generateMainString();
-    debugger;
+    const pattern = generateMainString().split(",");
+    for(let i = 0; i < pattern.length; i++){
+      
+    }
   }
   render() {
     return (
       <div className="container">
         <Controller playPressed={this.playPressed}/>
-        <ButtonContainer/>
+        <ButtonContainer playBtn={this.state.selectBtn}/>
       </div>
     );
   }
