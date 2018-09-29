@@ -1,0 +1,150 @@
+body, html{
+  height: 100%;
+  margin: 0px;
+  font-family: sofia-pro;
+}
+
+#app{
+  background-color: aliceblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-y: scroll;
+}
+
+.container{
+  width: 80%;
+}
+
+.page-header{
+  height: 80px;
+  padding: 20px;
+  background-color: #ff7800;
+  color: white;
+  font-size: 40px;
+  text-align: center;
+  line-height: 80px;
+}
+
+.page-content{
+  display: flex;
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
+.sub-header{
+  text-align: center;
+  font-size: 32px;
+  font-weight: 400px;
+}
+
+/* Products Container */
+.products-container{
+  width: 70%;
+}
+
+.product-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Product Container */
+
+/* Product List Item */
+.product{
+  width: 200px;
+  padding: 10px;
+  background-color: white;
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.product-image img{
+  width: 200px;
+  height: 200px;
+}
+
+.product p{
+  margin: 0px;
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+}
+
+.product input{
+  height: 20px;
+  margin: 20px;
+  font-size: 20px;
+  text-align: center;
+  width: 90px;
+}
+
+.product button{
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  width: 100px;
+  height: 40px;
+  font-size: 16px;
+  cursor: pointer;
+}
+/* Product List Item */
+
+/* Shopping Cart */
+.shopping-cart-container{
+  width: 30%;
+}
+
+.shopping-cart-container .item{
+  list-style: none;
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+  height: 60px;
+}
+
+.shopping-cart-container .remove{
+  line-height: 60px;
+  cursor: pointer;
+  color: red;
+  font-weight: 800;
+}
+
+.shopping-cart-container .name{
+  flex-basis: 50%;
+  text-align: center;
+}
+
+.shopping-cart-container .total{
+  flex-basis: 20%;
+}
+
+.shopping-cart-container .amt{
+  flex-basis: 20%;
+}
+
+.shopping-cart-container .remove{
+  flex-basis: 10%;
+}
+
+.shopping-cart-container .emptyBasket,
+.shopping-cart-container .cartTotal{
+  height: 30px;
+  text-align: center;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.shopping-cart-container .emptyBasket{
+  color: red;
+  margin-top: 40px;
+}
+
+.shopping-cart-container .cartTotal{
+  color: red;
+  font-size: 40px;
+}
+/* Shopping Cart */
