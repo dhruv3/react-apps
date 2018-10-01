@@ -1,4 +1,8 @@
-#Grocery App
+# Grocery App
+
+[Live Link](https://o74z0n93zq.codesandbox.io/)
+
+[CodeSandBox Link](https://codesandbox.io/s/o74z0n93zq)
 
 Process to create this app:
 1. Skeleton of this app is setup using my [react-boilerplate](https://github.com/dhruv3/react-boilerplate).
@@ -8,5 +12,3 @@ sent to them.
 4. Next Product and list of Product was tackled.
 5. Finally logic and style for Shopping Cart was done.
 
-One CSS file(index.css) preferred over multiple CSS files so as to limit total number of files and prevent unnecessary HTTP calls.
-Due to 2 hours time constraint and my minimum experience in SASS I decided to use plain CSS.
