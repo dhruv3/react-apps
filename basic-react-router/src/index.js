@@ -1,18 +1,19 @@
 var React = require("react");
 var ReactDOM = require("react-dom");
+import { BrowserRouter } from 'react-router-dom';
+import Main  from './Main.js';
+import Header  from './Header.js';
 require('./index.css');
 
-class App extends React.Component{
-  render() {
-    return (
-      <div>
-        Hello World!
-      </div>
-    )
-  }
-}
-
-ReactDOM.render(
-  <App/>,
-  document.getElementById("app")
+const App = () => (
+  <div>
+    <Header/>
+    <Main />
+  </div>
 )
+
+ReactDOM.render((
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
+), document.getElementById('root'))
