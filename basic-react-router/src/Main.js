@@ -43,12 +43,47 @@ const Home = () => (
   </div>
 )
 
+const NestedRouter1 = () => (
+  <div>
+    <h1>Welcome to NestedRouter1!</h1>
+  </div>
+)
+
+const NestedRouter2 = () => (
+  <div>
+    <h1>Welcome to NestedRouter2!</h1>
+  </div>
+)
+
+const NestedRouter3 = () => (
+  <div>
+    <h1>Welcome to NestedRouter3!</h1>
+  </div>
+)
+
+const NestedRouter = () => (
+  <header>
+    <h1>Nested Router Links</h1>
+    <nav>
+      <ul>
+        <li><Link to='/nestedRouter/cars'>Cars</Link></li>
+        <li><Link to='/nestedRouter/about'>About Nested Router</Link></li>
+      </ul>
+    </nav>
+  </header>
+)
+
 const Main = () => (
   <main>
     <Switch>
       <Route exact path='/' component={Home}/>
       <Route path='/roster' component={Roster}/>
       <Route path='/schedule' component={Schedule}/>
+      <Route component={NestedRouter} path="/nestedRouter">
+          <Route exact path="/" component={NestedRouter1}/>
+          <Route path="/cars" component={NestedRouter2}/>
+          <Route path="/about" component={NestedRouter3}/>
+      </Route>
     </Switch>
   </main>
 )
