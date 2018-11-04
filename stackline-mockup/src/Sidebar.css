@@ -1,0 +1,18 @@
+.sidebar{
+  flex-basis: 20%;
+  margin: 40px;
+  background: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.sidebar img{
+  width: 150px;
+  height: 150px;
+}
+
+.sidebar .tag-elem{
+  width: 100px;
+  margin: 10px;
+}

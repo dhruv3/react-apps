@@ -23,7 +23,7 @@ class App extends Component {
   }
   render() {
     return (
-      <div>
+      <div className="container">
         <Sidebar content={this.state.content}/>
         <MainBody content={this.state.content}/>
       </div>
