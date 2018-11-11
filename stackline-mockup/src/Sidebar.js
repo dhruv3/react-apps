@@ -20,6 +20,10 @@ class Sidebar extends Component {
         <div className="tags">
           {this.getTags(content.tags)}
         </div>
+        <div className="filter">
+          <button>Overview</button>
+          <button>Sales</button>
+        </div>
       </div>
     );
   }

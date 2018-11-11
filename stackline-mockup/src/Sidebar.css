@@ -12,7 +12,17 @@
   height: 150px;
 }
 
+.sidebar .tags{
+  border-top: 4px solid #f5f8fa;
+  border-bottom: 4px solid #f5f8fa;
+}
+
 .sidebar .tag-elem{
+  width: 100px;
+  margin: 10px;
+}
+
+.filter button{
   width: 100px;
   margin: 10px;
 }
