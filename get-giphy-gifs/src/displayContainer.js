@@ -17,7 +17,7 @@ class DisplayContainer extends Component {
       {
         this.state.content.map((elem, index) => {
           return (
-            <div className="listItem">
+            <div key={index} className="listItem">
               <img src={elem.url}/>
             </div>
           )

@@ -1,24 +1,24 @@
 body, html{
   height: 100%;
   margin: 0px;
+  background-color: aliceblue;
 }
 
 a{
-text-decoration: none;
-color: cornsilk;
+  text-decoration: none;
+  color: cornsilk;
 }
 
 #root{
-height:100vh;
-background-color: aliceblue;
-display: flex;
-justify-content: center;
-align-items: center;
-font-family: sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: sans-serif;
 }
 
 .container{
-width: 80%;
+  width: 80%;
+  overflow: scroll;
 }
 
 .heading{
@@ -47,6 +47,7 @@ width: 80%;
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
+  margin-top: 40px;
 }
 
 .displayContainer .listItem{
@@ -55,6 +56,6 @@ width: 80%;
 }
 
 .displayContainer .listItem img{
-  max-width: 100%;
-  max-height: 100%;
+  width: 80%;
+  height: 80%;
 }
