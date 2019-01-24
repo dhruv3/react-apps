@@ -8,8 +8,13 @@ class App extends Component {
       gifContent: []
     }
     this.getGIFS = this.getGIFS.bind(this);
+    this.clearGIFS = this.clearGIFS.bind(this);
   }
 
+  clearGIFS(){
+    this.setState({gifContent: []})
+  }
+  
   getGIFS(){
     const promiseArr = [];
     var that = this;
@@ -29,7 +34,7 @@ class App extends Component {
           <button onClick={this.getGIFS}>Load GIFs</button>
           <button>Randomize Order</button>
           <button>Select One at Random</button>
-          <button>Clear ALL</button>
+          <button onClick={this.clearGIFS}>Clear ALL</button>
         </div>
         <DisplayContainer content={this.state.gifContent}/>
       </div>

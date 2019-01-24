@@ -9,7 +9,8 @@ class DisplayContainer extends Component {
   }
 
   componentWillReceiveProps(props){
-    this.setState({content: props.content})
+    if(props.content != undefined)
+      this.setState({content: props.content})
   }
   render() {
     return (
