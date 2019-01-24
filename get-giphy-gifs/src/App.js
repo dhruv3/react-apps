@@ -14,7 +14,7 @@ class App extends Component {
   clearGIFS(){
     this.setState({gifContent: []})
   }
-  
+
   getGIFS(){
     const promiseArr = [];
     var that = this;
@@ -26,14 +26,13 @@ class App extends Component {
               }
             )
   }
+
   render() {
     return (
       <div className="container">
         <div className="heading">Trending GIFs</div>
         <div className="buttonContainer">
-          <button onClick={this.getGIFS}>Load GIFs</button>
-          <button>Randomize Order</button>
-          <button>Select One at Random</button>
+          <button onClick={this.getGIFS}>Load GIFs</button>\
           <button onClick={this.clearGIFS}>Clear ALL</button>
         </div>
         <DisplayContainer content={this.state.gifContent}/>
