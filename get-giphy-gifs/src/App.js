@@ -7,18 +7,19 @@ class App extends Component {
     this.state = {
       gifContent: []
     }
+    this.getGIFS = this.getGIFS.bind(this);
   }
 
   getGIFS(){
-    let promiseArr = [];
-    promiseArr.push(fetch("https://cors-anywhere.herokuapp.com/https://api.giphy.com/v1/gifs/trending?api_key=IXXo1JjE4XmyQsC4WfoocG9HqmuxpZpE&limit=25&rating=G")
-    .then(res => res.json())
-    .then(function(items){
-      debugger;
-    }))
-    
-
-
+    const promiseArr = [];
+    var that = this;
+    fetch("https://cors-anywhere.herokuapp.com/https://api.giphy.com/v1/gifs/trending?api_key=IXXo1JjE4XmyQsC4WfoocG9HqmuxpZpE&limit=25&rating=G")
+      .then(res => res.json())
+        .then(function(items){
+                items.data.map((elem) => promiseArr.push(elem.images.downsized_medium))
+                that.setState({gifContent: promiseArr})
+              }
+            )
   }
   render() {
     return (
@@ -30,7 +31,7 @@ class App extends Component {
           <button>Select One at Random</button>
           <button>Clear ALL</button>
         </div>
-        <DisplayContainer/>
+        <DisplayContainer content={this.state.gifContent}/>
       </div>
     );
   }
