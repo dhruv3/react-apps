@@ -2,6 +2,7 @@
 
 LIVE version of projects created using ReactJS
 * [Random Quote Generator](https://yq920kk6jv.codesandbox.io/)
+* [Trending Giphy GIFs](https://xl39zk3z1o.codesandbox.io/)
 * [Pomodoro Clock](https://ryyxxyvyn4.codesandbox.io/)
 * [Twitch Stream Viewer](https://qx1r8kq7ow.codesandbox.io/)
 * [JSX Transpiler](https://j55rxm55y.codesandbox.io/)
