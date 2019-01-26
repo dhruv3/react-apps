@@ -4,11 +4,6 @@ body, html{
   background-color: aliceblue;
 }
 
-a{
-  text-decoration: none;
-  color: cornsilk;
-}
-
 #root{
   display: flex;
   justify-content: center;
