@@ -1,5 +1,5 @@
 body, html{
-    background: url(https://wallpapercave.com/wp/HlVPZUT.jpg) no-repeat center center fixed;
+    background: url(https://wallpapercave.com/wp/wp3028441.jpg) no-repeat center center fixed;
     background-size: cover;
     height: 100%;
     overflow: hidden;
@@ -27,5 +27,19 @@ h1{
     font-size: 30px;
     margin-top: 30px;
     color: springgreen
+}
+
+.issDataContainer{
+    font-size: 30px;
+    color: floralwhite;
+}
+
+.issDataContainer table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table, td, th {
+    border: 2px solid deepskyblue;
 }
   

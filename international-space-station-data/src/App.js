@@ -8,6 +8,7 @@ class App extends Component {
     this.state ={
       intervalId: 0,
       cowboyContent: {},
+      issLocationContent: {}
     }
     this.timer = this.timer.bind(this)
   }
@@ -32,6 +33,13 @@ class App extends Component {
                 that.setState({cowboyContent: items})
               }
             )
+
+    fetch("https://cors-anywhere.herokuapp.com/http://api.open-notify.org/iss-now.json")
+      .then(res => res.json())
+        .then(function(items){
+                that.setState({issLocationContent: items})
+              }
+            )
   }
 
   render() {
@@ -39,7 +47,7 @@ class App extends Component {
       <div className="container">
         <h1>International Space Station Information</h1>
         <CurrentSpaceCowboys content={this.state.cowboyContent}/>
-        <ISSData/>
+        <ISSData content={this.state.issLocationContent}/>
       </div>
     );
   }
