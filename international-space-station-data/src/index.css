@@ -4,6 +4,7 @@ body, html{
     height: 100%;
     overflow: hidden;
     margin: 0px;
+    text-align: center;
 }
 
 #root{
@@ -11,9 +12,20 @@ body, html{
     justify-content: center;
     align-items: center;
     font-family: sans-serif;
+    color: rgb(80, 201, 206);
 }
 
 .container{
     width: 80%;
+}
+
+h1{
+    font-size: 50px;
+}
+
+.currentSpaceCowboysContainer{
+    font-size: 30px;
+    margin-top: 30px;
+    color: springgreen
 }
   
