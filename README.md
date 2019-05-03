@@ -1,6 +1,6 @@
 # React Projects
 
-LIVE version of projects created using ReactJS
+LIVE version of projects created using ReactJS:
 * [Random Quote Generator](https://yq920kk6jv.codesandbox.io/)
 * [Trending Giphy GIFs](https://xl39zk3z1o.codesandbox.io/)
 * [Pomodoro Clock](https://ryyxxyvyn4.codesandbox.io/)
@@ -13,3 +13,7 @@ LIVE version of projects created using ReactJS
 * [Markdown Previewer](https://x2j73qxnrw.codesandbox.io/)
 * [Driver History Log](https://58232q02n.codesandbox.io/)
 * [Grocery Store](https://o74z0n93zq.codesandbox.io/)
+
+Projects using Redux:
+* [Wikipedia Viewer](https://0xovywjm0p.codesandbox.io/)
+* [Recipe Box](https://z34jkypv83.codesandbox.io/)
