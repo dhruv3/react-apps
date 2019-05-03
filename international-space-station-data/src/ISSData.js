@@ -22,9 +22,6 @@ class ISSData extends Component {
             <tr><td>Current Latitude</td><td>{this.state.content.iss_position != undefined? this.state.content.iss_position.latitude : 0}</td></tr>
             <tr><td>Current Longitude</td><td>{this.state.content.iss_position != undefined? this.state.content.iss_position.longitude : 0}</td></tr>
             <tr><td>Current Timestamp (unix)</td><td>{this.state.content.timestamp != undefined? this.state.content.timestamp : 0}</td></tr>
-            <tr><td>Current Timestamp (normal)</td><td></td></tr>
-            <tr><td>Estimated Velocity (km/h)</td><td></td></tr>
-            <tr><td>Estimated Velocity (mph)</td><td></td></tr>
           </tbody>
         </table>
       </div>
