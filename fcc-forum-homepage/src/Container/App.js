@@ -22,27 +22,18 @@ class App extends React.Component{
   preprocess(data){
     const res = [];
     const {users, topic_list} = data;
-    const userMap = {}
-    debugger
-    users.map(user => {
-      const id = user.id
-      return new Object({id: user})
-    })
-    userMap.push(
-      
-    );
-    debugger;
+    const userMap = {};
+    //https://codeburst.io/using-javascript-variables-as-object-keys-c191e2458fa3
+    users.forEach(elem => {userMap[elem.id] = elem});                     
     topic_list.topics.map((elem, idx, data) => {
       const obj = {};
       obj.sno = idx;
       obj.title = elem.title;
       obj.views = elem.views;
-      const postersID = [];
-      postersID.push(elem.posters.map(data => data.user_id));
+      const postersID = elem.posters.map(data =>{ const id = data.user_id; return userMap[id]});
       obj.usersID = postersID
       res.push(obj);
     });
-    debugger;
   }
 
   render() {
