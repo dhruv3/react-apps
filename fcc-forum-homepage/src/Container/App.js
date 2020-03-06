@@ -1,5 +1,7 @@
 import React from 'react';
 import './App.css';
+import '../Component/TableRow';
+import TableRow from '../Component/TableRow';
 
 class App extends React.Component{
   constructor(props) {
@@ -15,7 +17,7 @@ class App extends React.Component{
       return response.json()
     }).then((data) => {
       data = this.preprocess(data);
-      this.setState(data);
+      this.setState({data: data});
     }).catch((err) => console.log);
   }
 
@@ -34,6 +36,7 @@ class App extends React.Component{
       obj.usersID = postersID
       res.push(obj);
     });
+    return res;
   }
 
   render() {
@@ -47,7 +50,9 @@ class App extends React.Component{
           <div>Activity</div>
         </div>
         <div className="listContainer">
-  
+          {
+            this.state.data.map((elem, idx) =>  <TableRow index={idx} data={elem}/>)
+          }
         </div>
       </div>
     )
