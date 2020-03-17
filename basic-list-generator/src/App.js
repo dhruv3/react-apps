@@ -28,7 +28,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <h1>List It!</h1>
-        <div>
+        <div className="postBox">
           <textarea ref={this.textarea}/>
           <button onClick={this.updateData.bind(this)}>Submit</button>
         </div>
