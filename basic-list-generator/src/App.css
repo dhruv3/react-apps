@@ -6,7 +6,7 @@
   align-items: center;
 }
 
-.postBox{
+.postBox, .listItem{
   width: 70%;
   display: flex;
   justify-content: space-around;
@@ -20,4 +20,34 @@
 
 .postBox textarea{
   flex-basis: 70%;
+}
+
+.listItem{
+  margin-bottom: 10px;
+  height: 40px;
+}
+
+.listText{
+  flex-basis: 70%;
+  line-height: 40px;
+  font-size: 30px;
+}
+
+.listItem button{
+  width: 100px;
+  height: 30px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.App > div.listItem:nth-of-type(odd) {
+  background: darkturquoise;
+  color: white;
+  font-weight: 600;
+}
+
+.App > div.listItem:nth-of-type(even) {
+  background: bisque;
+  color: black;
+  font-weight: 600;
 }
