@@ -2,22 +2,21 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 const ResourceList = ({resource}) => {
-    const [resources, setResources] = useState([]);
-
-    const fetchResource = async (resource) => {
-        const response = await axios.get(
-            `https://jsonplaceholder.typicode.com/${resource}`
-        );
-
-        setResources(response.data);
-        //this.setState({resources: response.data});
-    }
+    const [resources, setResources] = useState([]); 
 
     useEffect(() => {
-        fetchResource(resource)
-    }, []);
+        (
+            async (resource) => {
+                const response = await axios.get(
+                    `https://jsonplaceholder.typicode.com/${resource}`
+                );
+        
+                setResources(response.data);
+            }
+        )(resource)
+    }, [resource]);
 
-    return <div>{resources.length}</div>
+    return <ul>{resources.map(record => <li key={record.id}>{record.title}</li>)}</ul>
 }
 
 export default ResourceList;
